@@ -877,12 +877,29 @@ input { font-family: inherit; }
   .logo { font-size: 16px; }
 
   .hero {
-    background-image: url('assets/mobile-hero.png');
-    background-position: center center;
-    padding: 90px 0 48px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    background-image: none;
+    background-color: #0A1412;
+    min-height: unset;
+    padding: 0;
+    align-items: unset;
   }
-  .hero::before {
-    background: rgba(5, 10, 8, 0.62);
+  .hero::before { display: none; }
+  .hero__mobile-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    grid-area: 1 / 1;
+    z-index: 0;
+  }
+  .hero__grid {
+    grid-area: 1 / 1;
+    z-index: 1;
+    background: rgba(5, 10, 8, 0.58);
+    padding: 56px 16px 32px;
+    align-items: center;
   }
   .hero__title { font-size: 26px; line-height: 1.15; }
   .hero__subtitle { font-size: 14px; margin-bottom: 20px; }
