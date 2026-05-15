@@ -127,16 +127,14 @@ input { font-family: inherit; }
   letter-spacing: -0.03em;
   margin-bottom: 20px;
   color: #FFFFFF;
-  text-shadow: 0 2px 24px rgba(0,0,0,0.5);
 }
 .hero__title br { display: block; }
 .hero__subtitle {
   font-size: 17px;
-  color: rgba(255,255,255,0.95);
+  color: #FFFFFF;
   line-height: 1.7;
   margin-bottom: 32px;
   max-width: 480px;
-  text-shadow: 0 1px 12px rgba(0,0,0,0.4);
 }
 
 
@@ -159,9 +157,9 @@ input { font-family: inherit; }
   font-weight: 600;
 }
 .badges--outline .badge--outline {
-  background: rgba(255,255,255,0.12);
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.16);
+  color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.5);
 }
 
 /* ===== FORMS ===== */
@@ -195,14 +193,15 @@ input { font-family: inherit; }
 
 /* Dark form variant */
 .lead-form--dark .form-group input {
-  background: rgba(255,255,255,0.18);
-  border-color: rgba(255,255,255,0.35);
-  color: var(--white);
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.85);
 }
-.lead-form--dark .form-group input::placeholder { color: rgba(255,255,255,0.65); }
+.lead-form--dark .form-group input::placeholder { color: rgba(255,255,255,0.5); }
 .lead-form--dark .form-group input:focus {
-  background: rgba(255,255,255,0.25);
-  border-color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.20);
+  border-color: rgba(255,255,255,0.6);
+  color: #FFFFFF;
 }
 
 .form-row {
