@@ -679,6 +679,12 @@ input { font-family: inherit; }
   z-index: 2;
   box-shadow: var(--shadow-green);
 }
+.author__photo--placeholder {
+  background: linear-gradient(135deg, var(--green-tint) 0%, var(--green-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .author__label {
   font-size: 13px;
   font-weight: 700;
