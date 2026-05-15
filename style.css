@@ -827,8 +827,12 @@ input { font-family: inherit; }
   .section__header { margin-bottom: 40px; }
   .section__title { letter-spacing: -0.015em; }
 
-  .hero { background-position: 65% center; }
-  .hero__title { font-size: clamp(32px, 8vw, 44px); }
+  .hero { background-position: 65% center; padding: 100px 0 56px; }
+  .hero__title { font-size: clamp(28px, 7.5vw, 44px); }
+  .hero__subtitle { font-size: 16px; }
+  .hero__content { max-width: 100%; }
+  .hero__content .badges { gap: 6px; }
+  .hero__content .badge--outline { font-size: 13px; padding: 6px 10px; }
 
   .cards-grid { grid-template-columns: 1fr; gap: 12px; }
   .card { padding: 20px 18px; }
@@ -870,9 +874,11 @@ input { font-family: inherit; }
   .site-header { padding: 16px 0; }
   .logo { font-size: 16px; }
 
-  .hero { padding: 80px 0 48px; background-position: 70% center; }
-  .hero__title { font-size: 30px; line-height: 1.15; }
-  .hero__subtitle { font-size: 15px; }
+  .hero { padding: 90px 0 48px; background-position: 72% center; }
+  .hero__title { font-size: 26px; line-height: 1.15; }
+  .hero__subtitle { font-size: 14px; margin-bottom: 20px; }
+  .hero__content .badges { justify-content: center; gap: 6px; flex-wrap: wrap; }
+  .hero__content .badge--outline { flex: 0 0 auto; font-size: 12px; padding: 5px 12px; }
 
   .badges { gap: 6px; }
   .badge { font-size: 12px; padding: 5px 12px; }
