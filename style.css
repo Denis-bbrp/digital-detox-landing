@@ -827,7 +827,8 @@ input { font-family: inherit; }
   .section__header { margin-bottom: 40px; }
   .section__title { letter-spacing: -0.015em; }
 
-  .hero { background-position: 65% center; padding: 100px 0 56px; }
+  .hero { background-position: 75% 20%; padding: 100px 0 56px; }
+  .hero::before { background: rgba(5, 15, 10, 0.58); }
   .hero__title { font-size: clamp(28px, 7.5vw, 44px); }
   .hero__subtitle { font-size: 16px; }
   .hero__content { max-width: 100%; }
@@ -874,7 +875,8 @@ input { font-family: inherit; }
   .site-header { padding: 16px 0; }
   .logo { font-size: 16px; }
 
-  .hero { padding: 90px 0 48px; background-position: 72% center; }
+  .hero { padding: 90px 0 48px; background-position: 82% 20%; }
+  .hero::before { background: rgba(5, 15, 10, 0.52); }
   .hero__title { font-size: 26px; line-height: 1.15; }
   .hero__subtitle { font-size: 14px; margin-bottom: 20px; }
   .hero__content .badges { justify-content: center; gap: 6px; flex-wrap: wrap; }
