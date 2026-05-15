@@ -136,6 +136,7 @@ input { font-family: inherit; }
   text-align: center;
 }
 .hero__title br { display: block; }
+.hero__mobile-img { display: none; }
 .hero__subtitle {
   font-size: 17px;
   color: #FFFFFF;
@@ -875,8 +876,23 @@ input { font-family: inherit; }
   .site-header { padding: 16px 0; }
   .logo { font-size: 16px; }
 
-  .hero { padding: 90px 0 48px; background-position: 82% 20%; }
-  .hero::before { background: rgba(5, 15, 10, 0.52); }
+  .hero {
+    background-image: none;
+    background-color: #0A1412;
+    min-height: unset;
+    padding: 0 0 40px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero::before { display: none; }
+  .hero__mobile-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .hero__grid {
+    padding-top: 32px;
+  }
   .hero__title { font-size: 26px; line-height: 1.15; }
   .hero__subtitle { font-size: 14px; margin-bottom: 20px; }
   .hero__content .badges { justify-content: center; gap: 6px; flex-wrap: wrap; }
