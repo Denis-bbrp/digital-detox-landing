@@ -131,6 +131,7 @@ input { font-family: inherit; }
   color: #FFFFFF;
 }
 .hero__title br { display: block; }
+.hero__title-sub { font-size: 0.68em; font-weight: 700; }
 .hero__subtitle {
   font-size: 17px;
   color: #FFFFFF;
