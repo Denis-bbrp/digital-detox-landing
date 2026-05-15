@@ -129,9 +129,9 @@ input { font-family: inherit; }
   letter-spacing: -0.03em;
   margin-bottom: 20px;
   color: #FFFFFF;
+  text-align: center;
 }
 .hero__title br { display: block; }
-.hero__title-sub { font-size: 0.68em; font-weight: 700; }
 .hero__subtitle {
   font-size: 17px;
   color: #FFFFFF;
