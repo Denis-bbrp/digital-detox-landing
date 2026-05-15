@@ -106,9 +106,9 @@ input { font-family: inherit; }
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(5, 18, 12, 0.92) 0%,
-    rgba(8, 25, 17, 0.78) 55%,
-    rgba(10, 30, 20, 0.42) 100%
+    rgba(5, 18, 12, 0.78) 0%,
+    rgba(8, 25, 17, 0.62) 55%,
+    rgba(10, 30, 20, 0.28) 100%
   );
   pointer-events: none;
 }
@@ -127,14 +127,16 @@ input { font-family: inherit; }
   letter-spacing: -0.03em;
   margin-bottom: 20px;
   color: #FFFFFF;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.5);
 }
 .hero__title br { display: block; }
 .hero__subtitle {
   font-size: 17px;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.95);
   line-height: 1.7;
   margin-bottom: 32px;
   max-width: 480px;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.4);
 }
 
 
@@ -193,14 +195,14 @@ input { font-family: inherit; }
 
 /* Dark form variant */
 .lead-form--dark .form-group input {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.35);
   color: var(--white);
 }
-.lead-form--dark .form-group input::placeholder { color: rgba(255,255,255,0.5); }
+.lead-form--dark .form-group input::placeholder { color: rgba(255,255,255,0.65); }
 .lead-form--dark .form-group input:focus {
-  background: rgba(255,255,255,0.15);
-  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.75);
 }
 
 .form-row {
@@ -213,7 +215,7 @@ input { font-family: inherit; }
   color: var(--gray);
   text-align: center;
 }
-.lead-form--dark .form-hint { color: rgba(255,255,255,0.5); }
+.lead-form--dark .form-hint { color: rgba(255,255,255,0.72); }
 .form-error {
   padding: 10px 14px;
   background: #FEF2F2;
