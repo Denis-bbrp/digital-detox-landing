@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Спасибо! — Цифровой детокс</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .thanks-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+      background: linear-gradient(145deg, #0A6349 0%, #0D7C5B 50%, #0F9B70 100%);
+    }
+    .thanks-card {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 64px 56px;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.2);
+      animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .thanks-check {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--green-tint);
+      border: 3px solid var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      animation: pop 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+    }
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    .thanks-check svg { width: 36px; height: 36px; }
+    .thanks-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .thanks-text {
+      font-size: 17px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .thanks-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 18px 32px;
+      background: var(--green);
+      color: var(--white);
+      border-radius: var(--radius-btn);
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      font-family: var(--font);
+    }
+    .thanks-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(13,124,91,0.35);
+    }
+    .thanks-btn svg { flex-shrink: 0; }
+    .thanks-hint {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+    .thanks-hint a {
+      color: var(--green);
+      font-weight: 600;
+    }
+    .thanks-hint a:hover { text-decoration: underline; }
+    .thanks-logo {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 40px;
+    }
+    @media (max-width: 520px) {
+      .thanks-card { padding: 40px 28px; }
+      .thanks-title { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="thanks-page">
+    <div class="thanks-card">
+      <div class="thanks-logo">Цифровой детокс</div>
+
+      <div class="thanks-check">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 18.5L14 25.5L29 10.5" stroke="#0D7C5B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h1 class="thanks-title">Оплата прошла!<br>Добро пожаловать</h1>
+      <p class="thanks-text">
+        Ты сделал важный шаг. Ссылка на закрытый Telegram-канал уже ждёт тебя — нажми кнопку ниже и присоединяйся.
+      </p>
+
+      <!-- TODO: Заменить YOUR_TG_LINK на реальную ссылку на Telegram-канал -->
+      <a href="YOUR_TG_LINK" class="thanks-btn" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Перейти в Telegram-канал
+      </a>
+
+      <!-- TODO: Заменить YOUR_EMAIL на email поддержки -->
+      <p class="thanks-hint">
+        Если ссылка не открылась — напиши нам:<br>
+        <a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

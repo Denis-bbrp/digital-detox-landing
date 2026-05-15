@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Цифровой детокс — вернись к себе за 21 день</title>
+  <meta name="description" content="Онлайн-курс «Цифровой детокс»: 21 день в закрытом Telegram-канале. Верни энергию, внимание и контроль над своей жизнью. Старт 1 июня. 5000 ₽.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Логотип без навигации -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">Цифровой детокс</div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== БЛОК 1: HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="container hero__grid">
+
+        <div class="hero__content">
+          <h1 class="hero__title">Цифровой детокс:<br>вернись к себе<br>за 21 день</h1>
+          <p class="hero__subtitle">Верни энергию, внимание и контроль над своей жизнью. Научись пользоваться телефоном так, чтобы он помогал тебе, а не управлял твоим мозгом.</p>
+
+          <div class="badges">
+            <span class="badge">Старт 1 июня</span>
+            <span class="badge">21 день</span>
+            <span class="badge">Telegram-канал</span>
+          </div>
+
+          <form id="lead-form-hero" class="lead-form" novalidate>
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+            </div>
+            <div class="form-error" id="form-hero-error" hidden></div>
+            <button type="submit" class="btn btn--primary btn--full">
+              <span class="btn__text">Оплатить курс — 5 000 ₽</span>
+              <span class="btn__loader" hidden>
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+              </span>
+            </button>
+            <p class="form-hint">После оплаты — мгновенный доступ в Telegram-канал</p>
+          </form>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__blob"></div>
+          <div class="hero__photo-wrap">
+            <img src="assets/author.jpg" alt="Никита — автор курса" class="hero__photo" loading="eager">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== БЛОК 2: УЗНАЁШЬ СЕБЯ? ===== -->
+    <section class="section recognize-section" id="recognize">
+      <div class="container">
+        <div class="section__header animate-in">
+          <h2 class="section__title">Телефон забирает у тебя<br>больше, чем время</h2>
+        </div>
+
+        <ul class="checklist">
+          <li class="checklist__item animate-in">берёшь телефон на 5 минут и исчезаешь на час</li>
+          <li class="checklist__item animate-in">постоянно проверяешь уведомления</li>
+          <li class="checklist__item animate-in">стало сложнее концентрироваться</li>
+          <li class="checklist__item animate-in">нет сил и энергии</li>
+          <li class="checklist__item animate-in">всё труднее читать книги</li>
+          <li class="checklist__item animate-in">сложно делать важные дела</li>
+          <li class="checklist__item animate-in">ничего особо не хочется</li>
+          <li class="checklist__item animate-in">день проходит, а ощущение, что ничего не сделал</li>
+        </ul>
+
+        <div class="big-quote animate-in">
+          <p class="big-quote__text">Проблема не в твоей слабой силе воли.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== БЛОК 3: ВОЙНА ЗА ВНИМАНИЕ (тёмный) ===== -->
+    <section class="section section--dark war-section" id="war">
+      <div class="container">
+        <div class="animate-in">
+          <h2 class="section__title">Твой мозг изучают каждый день</h2>
+          <p class="war__intro">Раньше внимание людей забирали сигареты, алкоголь и телевизор. Сегодня это делает телефон. Социальные сети, приложения и алгоритмы ежедневно собирают информацию о тебе.</p>
+        </div>
+
+        <div class="war__track animate-in">
+          <p class="war__track-label">Они изучают:</p>
+          <ul class="war__pills">
+            <li>что тебя цепляет</li>
+            <li>когда тебе скучно</li>
+            <li>когда ты устаёшь</li>
+            <li>что вызывает у тебя эмоции</li>
+            <li>на чём ты задерживаешь взгляд</li>
+          </ul>
+        </div>
+
+        <div class="animate-in">
+          <p class="war__conclusion">Их задача проста: удерживать тебя внутри как можно дольше. Потому что чем больше времени ты проводишь в телефоне — тем больше на тебе зарабатывают.</p>
+        </div>
+
+        <div class="war__statement animate-in">
+          <p>За твоё внимание идёт<br>настоящая война.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== БЛОК 4: ЧТО УЗНАЕШЬ ===== -->
+    <section class="section learn-section" id="learn">
+      <div class="container">
+        <div class="section__header animate-in">
+          <h2 class="section__title">На курсе ты узнаешь</h2>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card animate-in">
+            <span class="card__icon">✓</span>
+            <p>кто зарабатывает на твоём внимании</p>
+          </div>
+          <div class="card animate-in">
+            <span class="card__icon">✓</span>
+            <p>кому выгодно, чтобы ты сидел часами в телефоне</p>
+          </div>
+          <div class="card animate-in">
+            <span class="card__icon">✓</span>
+            <p>как работают механизмы цифровой зависимости</p>
+          </div>
+          <div class="card animate-in">
+            <span class="card__icon">✓</span>
+            <p>почему приложения так сложно закрыть</p>
+          </div>
+          <div class="card animate-in">
+            <span class="card__icon">✓</span>
+            <p>какие технологии заставляют возвращаться снова</p>
+          </div>
+          <div class="card animate-in">
+            <span class="card__icon">✓</span>
+            <p>как социальные сети управляют привычками</p>
+          </div>
+          <div class="card animate-in">
+            <span class="card__icon">✓</span>
+            <p>почему телефон стал машиной захвата внимания</p>
+          </div>
+          <div class="card animate-in">
+            <span class="card__icon">✓</span>
+            <p>как выйти из этой ловушки</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== БЛОК 5: ПРОГРАММА ===== -->
+    <section class="section section--tint program-section" id="program">
+      <div class="container">
+        <div class="section__header animate-in">
+          <h2 class="section__title">Не просто теория.<br>Только практика</h2>
+        </div>
+
+        <div class="program__grid">
+          <ul class="program__list animate-in">
+            <li class="program__item">
+              <span class="program__num">01</span>
+              <span>Ежедневные задания</span>
+            </li>
+            <li class="program__item">
+              <span class="program__num">02</span>
+              <span>Прямые эфиры</span>
+            </li>
+            <li class="program__item">
+              <span class="program__num">03</span>
+              <span>Разбор механизмов манипуляций</span>
+            </li>
+            <li class="program__item">
+              <span class="program__num">04</span>
+              <span>Готовые настройки телефона</span>
+            </li>
+            <li class="program__item">
+              <span class="program__num">05</span>
+              <span>Техники против цифровой зависимости</span>
+            </li>
+            <li class="program__item">
+              <span class="program__num">06</span>
+              <span>Создание новых привычек</span>
+            </li>
+            <li class="program__item">
+              <span class="program__num">07</span>
+              <span>Поддержка участников</span>
+            </li>
+            <li class="program__item">
+              <span class="program__num">08</span>
+              <span>Понятные пошаговые инструкции</span>
+            </li>
+          </ul>
+
+          <div class="live-card animate-in">
+            <div class="live-card__tag">Прямые эфиры</div>
+            <h3 class="live-card__title">На эфирах разберём:</h3>
+            <ul class="live-card__list">
+              <li>Кто и как борется за ваше внимание</li>
+              <li>Кому выгодно, чтобы вы проводили часы в телефоне</li>
+              <li>Как устроены механизмы зависимости</li>
+              <li>Почему приложения знают ваши привычки лучше вас</li>
+              <li>Как вернуть контроль над своим вниманием и мышлением</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== БЛОК 6: ДЕТИ ===== -->
+    <section class="section children-section" id="children">
+      <div class="container">
+        <div class="section__header animate-in">
+          <h2 class="section__title">А теперь самое важное — дети</h2>
+        </div>
+
+        <div class="children__grid">
+          <div class="animate-in">
+            <p class="children__intro">Если взрослому человеку сложно сопротивляться алгоритмам, представьте ребёнка. Когда ребёнок с раннего возраста получает постоянный доступ к телефону, коротким видео, играм и бесконечной ленте, мозг начинает привыкать к быстрым удовольствиям.</p>
+            <p class="children__sub">Со временем родители замечают:</p>
+            <ul class="checklist checklist--compact">
+              <li class="checklist__item">ребёнку становится трудно долго удерживать внимание</li>
+              <li class="checklist__item">обычные игры и прогулки становятся скучными</li>
+              <li class="checklist__item">становится сложнее концентрироваться</li>
+              <li class="checklist__item">снижается интерес к обучению</li>
+              <li class="checklist__item">пропадает любопытство</li>
+            </ul>
+          </div>
+
+          <div class="skills-block animate-in">
+            <h3 class="skills-block__title">В детстве формируются<br>важнейшие навыки:</h3>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <span class="skill-item__icon">&#9679;</span>
+                <span>Внимание</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">&#9679;</span>
+                <span>Усидчивость</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">&#9679;</span>
+                <span>Интерес к познанию</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">&#9679;</span>
+                <span>Общение</span>
+              </div>
+              <div class="skill-item">
+                <span class="skill-item__icon">&#9679;</span>
+                <span>Достижение целей</span>
+              </div>
+            </div>
+            <p class="skills-block__note">Если большую часть времени внимание ребёнка постоянно забирает экран, эти навыки могут развиваться слабее.</p>
+          </div>
+        </div>
+
+        <div class="children__quote animate-in">
+          <p>Наша задача — не забрать телефон у детей.<br>Наша задача — не позволить телефону забрать их детство.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== БЛОК 7: АВТОР ===== -->
+    <section class="section author-section" id="author">
+      <div class="container">
+        <div class="author__grid">
+          <div class="author__photo-wrap animate-in">
+            <div class="author__blob"></div>
+            <img src="assets/author.jpg" alt="Никита" class="author__photo" loading="lazy">
+          </div>
+          <div class="author__content animate-in">
+            <p class="author__label">Автор курса</p>
+            <h2 class="author__name">Никита</h2>
+            <p class="author__bio">Эксперт по цифровому здоровью и осознанному использованию технологий. Помогаю людям вернуть контроль над своим вниманием и жизнью.</p>
+            <p class="author__bio">Изучил механизмы цифровой зависимости изнутри и разработал систему, которая работает за 21 день — без жёстких ограничений и запретов.</p>
+            <div class="author__stats">
+              <div class="author__stat">
+                <span class="author__stat-num">21</span>
+                <span class="author__stat-label">день практики</span>
+              </div>
+              <div class="author__stat">
+                <span class="author__stat-num">15–20</span>
+                <span class="author__stat-label">минут в день</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== БЛОК 8: РЕЗУЛЬТАТ ===== -->
+    <section class="section section--tint results-section" id="results">
+      <div class="container">
+        <div class="section__header animate-in">
+          <h2 class="section__title">Что изменится после курса</h2>
+        </div>
+
+        <ul class="checklist checklist--two-col animate-in">
+          <li class="checklist__item">уменьшится зависимость от телефона</li>
+          <li class="checklist__item">появится больше свободного времени</li>
+          <li class="checklist__item">станет легче концентрироваться</li>
+          <li class="checklist__item">вернётся энергия</li>
+          <li class="checklist__item">станет проще заниматься важными делами</li>
+          <li class="checklist__item">появится больше интереса к жизни</li>
+          <li class="checklist__item">уменьшится чувство постоянной усталости</li>
+          <li class="checklist__item">появится ощущение контроля над собой</li>
+        </ul>
+
+        <div class="results__quote animate-in">
+          <p>Телефон станет инструментом,<br>а не хозяином твоей жизни.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== БЛОК 9: ФИНАЛЬНЫЙ CTA ===== -->
+    <section class="section cta-section" id="cta">
+      <div class="container">
+        <div class="cta__inner animate-in">
+          <h2 class="cta__title">Сколько часов жизни телефон<br>заберёт у тебя ещё?</h2>
+          <p class="cta__text">Если ничего не менять — через год привычки станут сильнее.<br>Начни возвращать своё внимание уже сейчас.</p>
+
+          <div class="badges badges--outline">
+            <span class="badge badge--outline">21 день</span>
+            <span class="badge badge--outline">Старт 1 июня</span>
+            <span class="badge badge--outline">5 000 ₽</span>
+          </div>
+
+          <form id="lead-form-cta" class="lead-form lead-form--dark" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-error" id="form-cta-error" hidden></div>
+            <button type="submit" class="btn btn--white btn--full">
+              <span class="btn__text">Пойти на цифровой детокс — 5 000 ₽</span>
+              <span class="btn__loader" hidden>
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+                <span class="loader-dot"></span>
+              </span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p class="footer__logo">Цифровой детокс</p>
+      <p class="footer__copy">© 2025 — Все права защищены</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
