@@ -113,15 +113,18 @@ input { font-family: inherit; }
   pointer-events: none;
 }
 .hero__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  align-items: center;
-  width: 100%;
-  max-width: 620px;
-  margin: 0 auto;
   position: relative;
   z-index: 1;
+}
+.hero__content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero__content .lead-form {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: left;
 }
 .hero__title {
   font-size: clamp(36px, 4.5vw, 62px);
