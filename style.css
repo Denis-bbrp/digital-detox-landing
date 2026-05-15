@@ -141,7 +141,7 @@ input { font-family: inherit; }
   color: #FFFFFF;
   line-height: 1.7;
   margin-bottom: 32px;
-  max-width: 480px;
+  max-width: 100%;
 }
 
 
@@ -167,6 +167,15 @@ input { font-family: inherit; }
   background: rgba(255,255,255,0.16);
   color: #FFFFFF;
   border: 1px solid rgba(255,255,255,0.5);
+}
+.hero__content .badges {
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+.hero__content .badge--outline {
+  flex: 1;
+  justify-content: center;
 }
 
 /* ===== FORMS ===== */
