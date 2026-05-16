@@ -105,23 +105,16 @@ input { font-family: inherit; }
   overflow: hidden;
 }
 .hero::before { display: none; }
-.hero__photo-wrap {
-  position: relative;
-}
 .hero__photo-top {
   width: 100%;
   height: auto;
   display: block;
 }
 .hero__photo-badges {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 16px;
-  z-index: 2;
+  padding: 10px 16px;
+  background: #0A1412;
 }
 .hero__photo-badge {
   background: rgba(138, 88, 40, 0.88);
