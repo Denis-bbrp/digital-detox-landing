@@ -161,7 +161,7 @@ input { font-family: inherit; }
   display: flex;
   justify-content: space-between;
   padding: 10px 16px;
-  background: #0A1412;
+  background: #FFFFFF;
 }
 .hero__photo-badge {
   background: rgba(138, 88, 40, 0.88);
