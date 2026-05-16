@@ -251,11 +251,18 @@
     <!-- ===== БЛОК 7: АВТОР ===== -->
     <section class="section author-section" id="author">
       <div class="container">
-        <div class="author__grid">
-          <div class="author__photo-wrap animate-in">
-            <div class="author__blob"></div>
-            <div class="author__photo author__photo--placeholder"></div>
+        <div class="author__gallery animate-in">
+          <div class="gallery-item" data-index="0">
+            <img src="assets/nik1.jpg" alt="Никита Вохмянин">
           </div>
+          <div class="gallery-item" data-index="1">
+            <img src="assets/nik2.jpg" alt="Никита Вохмянин">
+          </div>
+          <div class="gallery-item" data-index="2">
+            <img src="assets/nik3.jpg" alt="Никита Вохмянин">
+          </div>
+        </div>
+        <div class="author__grid">
           <div class="author__content animate-in">
             <p class="author__label">Автор курса</p>
             <h2 class="author__name">Никита Вохмянин</h2>
@@ -277,6 +284,14 @@
         </div>
       </div>
     </section>
+
+    <!-- Лайтбокс -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox__close" id="lb-close">✕</button>
+      <button class="lightbox__prev" id="lb-prev">‹</button>
+      <img class="lightbox__img" id="lb-img" src="" alt="">
+      <button class="lightbox__next" id="lb-next">›</button>
+    </div>
 
     <!-- ===== БЛОК 8: РЕЗУЛЬТАТ ===== -->
     <section class="section section--tint results-section" id="results">

@@ -145,9 +145,73 @@ function showError(errorEl, message) {
   errorEl.hidden = false;
 }
 
+// ===== ГАЛЕРЕЯ + ЛАЙТБОКС =====
+function initGallery() {
+  const items = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lb-img');
+  const lbClose  = document.getElementById('lb-close');
+  const lbPrev   = document.getElementById('lb-prev');
+  const lbNext   = document.getElementById('lb-next');
+  if (!items.length || !lightbox) return;
+
+  const imgs = Array.from(items).map(el => el.querySelector('img').src);
+  let current = 0;
+
+  function showImg(i) {
+    current = (i + imgs.length) % imgs.length;
+    lbImg.style.animation = 'none';
+    lbImg.offsetHeight;
+    lbImg.style.animation = '';
+    lbImg.src = imgs[current];
+  }
+
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => {
+      // Аккордеон
+      items.forEach(el => el.classList.remove('active'));
+      item.classList.add('active');
+      // Лайтбокс
+      showImg(i);
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  lbClose.addEventListener('click', () => {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+  lbPrev.addEventListener('click', (e) => { e.stopPropagation(); showImg(current - 1); });
+  lbNext.addEventListener('click', (e) => { e.stopPropagation(); showImg(current + 1); });
+
+  // Свайп
+  let tx = 0;
+  lightbox.addEventListener('touchstart', (e) => { tx = e.touches[0].clientX; }, { passive: true });
+  lightbox.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) dx > 0 ? showImg(current - 1) : showImg(current + 1);
+  });
+
+  // Стрелки клавиатуры
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft')  showImg(current - 1);
+    if (e.key === 'ArrowRight') showImg(current + 1);
+    if (e.key === 'Escape') { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+  });
+}
+
 // ===== ИНИЦИАЛИЗАЦИЯ =====
 document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
+  initGallery();
 
   const heroForm = document.getElementById('lead-form-hero');
   const ctaForm  = document.getElementById('lead-form-cta');
