@@ -820,6 +820,8 @@ input { font-family: inherit; }
   .section__header { margin-bottom: 40px; }
   .section__title { letter-spacing: -0.015em; }
 
+  .site-header { display: none; }
+  .hero__photo-top { min-height: 300px; object-fit: cover; object-position: center center; }
   .hero__grid { padding: 48px 0 60px; }
   .hero__title { font-size: clamp(28px, 7.5vw, 44px); }
   .hero__subtitle { font-size: 16px; }
@@ -863,8 +865,6 @@ input { font-family: inherit; }
 /* --- Маленький мобильный 480px --- */
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
-
-  .site-header { display: none; }
 
   .hero__grid { padding: 40px 16px 48px; }
   .hero__title { font-size: 26px; line-height: 1.15; }
