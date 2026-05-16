@@ -17,21 +17,22 @@
 
     <!-- ===== БЛОК 1: HERO ===== -->
     <section class="hero" id="hero">
-      <picture>
-        <source media="(max-width: 768px)" srcset="assets/mobile-hero.png">
-        <img src="assets/photo.png" alt="До и после цифрового детокса" class="hero__photo-top">
-      </picture>
+      <div class="hero__photo-wrap">
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/mobile-hero.png">
+          <img src="assets/photo.png" alt="До и после цифрового детокса" class="hero__photo-top">
+        </picture>
+        <div class="hero__photo-badges">
+          <span class="hero__photo-badge">Цифровой детокс</span>
+          <span class="hero__photo-badge">21 день</span>
+          <span class="hero__photo-badge">Telegram-канал</span>
+        </div>
+      </div>
       <div class="container hero__grid">
 
         <div class="hero__content">
           <h1 class="hero__title">Избавься от цифровой<br>зависимости за 21 день</h1>
           <p class="hero__subtitle">Верни энергию, внимание и контроль над своей жизнью. Научись пользоваться телефоном так, чтобы он помогал тебе, а не управлял твоим мозгом.</p>
-
-          <div class="badges badges--outline">
-            <span class="badge badge--outline">Старт 1 июня</span>
-            <span class="badge badge--outline">21 день</span>
-            <span class="badge badge--outline">Telegram-канал</span>
-          </div>
 
           <form id="lead-form-hero" class="lead-form lead-form--dark" novalidate>
             <div class="form-group">
