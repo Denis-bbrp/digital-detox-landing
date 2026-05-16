@@ -744,23 +744,23 @@ input { font-family: inherit; }
   margin-bottom: 12px;
 }
 .author__name {
-  font-size: clamp(36px, 4vw, 52px);
+  font-size: clamp(28px, 4vw, 52px);
   font-weight: 800;
   letter-spacing: -0.03em;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   color: var(--black);
 }
 .author__bio {
-  font-size: 17px;
+  font-size: 15px;
   color: var(--gray);
-  line-height: 1.8;
-  margin-bottom: 16px;
+  line-height: 1.55;
+  margin-bottom: 8px;
 }
 .author__stats {
   display: flex;
   gap: 32px;
-  margin-top: 32px;
-  padding-top: 32px;
+  margin-top: 16px;
+  padding-top: 16px;
   border-top: 1px solid var(--border);
 }
 .author__stat {
@@ -975,10 +975,12 @@ input { font-family: inherit; }
   .children__quote { padding: 28px 20px; }
   .children__quote p { font-size: 18px; }
 
-  .author__photo { max-width: 260px; height: 300px; }
-  .author__name { font-size: 32px; }
-  .author__bio { font-size: 15px; }
-  .author__stat-num { font-size: 26px; }
+  .author__photo { max-width: 220px; height: 240px; }
+  .author__name { font-size: 26px; }
+  .author__bio { font-size: 14px; line-height: 1.5; margin-bottom: 6px; }
+  .author__label { margin-bottom: 6px; }
+  .author__stat-num { font-size: 24px; }
+  .author__stats { margin-top: 12px; padding-top: 12px; }
 
   .war__track { padding: 20px 16px; }
   .war__track-label { font-size: 12px; }
