@@ -72,14 +72,20 @@ input { font-family: inherit; }
 
 /* ===== HEADER ===== */
 .site-header {
-  padding: 20px 0;
-  position: sticky;
-  top: 0;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 100;
-  border-bottom: 1px solid var(--border);
+  display: none;
+}
+@media (min-width: 769px) {
+  .site-header {
+    display: block;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+  }
 }
 .logo {
   font-size: 18px;
@@ -820,7 +826,6 @@ input { font-family: inherit; }
   .section__header { margin-bottom: 40px; }
   .section__title { letter-spacing: -0.015em; }
 
-  .site-header { display: none; }
   .hero__photo-top { min-height: unset; object-fit: unset; }
   .hero__grid { padding: 48px 0 60px; }
   .hero__title { font-size: clamp(28px, 7.5vw, 44px); }
