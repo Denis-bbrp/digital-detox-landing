@@ -821,7 +821,7 @@ input { font-family: inherit; }
   .section__title { letter-spacing: -0.015em; }
 
   .site-header { display: none; }
-  .hero__photo-top { min-height: 300px; object-fit: cover; object-position: center center; }
+  .hero__photo-top { min-height: unset; object-fit: unset; }
   .hero__grid { padding: 48px 0 60px; }
   .hero__title { font-size: clamp(28px, 7.5vw, 44px); }
   .hero__subtitle { font-size: 16px; }
