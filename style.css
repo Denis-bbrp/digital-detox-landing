@@ -119,15 +119,14 @@ input { font-family: inherit; }
   left: 0;
   right: 0;
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 0 20px;
+  justify-content: space-between;
+  padding: 0 16px;
   z-index: 2;
 }
 .hero__photo-badge {
-  background: rgba(210, 185, 155, 0.82);
-  color: #3a2a1a;
-  border: 1px solid rgba(185, 155, 115, 0.55);
+  background: rgba(138, 88, 40, 0.88);
+  color: #fff5e8;
+  border: 1px solid rgba(180, 120, 60, 0.5);
   border-radius: 20px;
   padding: 7px 18px;
   font-size: 13px;
