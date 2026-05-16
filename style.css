@@ -795,7 +795,7 @@ input { font-family: inherit; }
 /* --- Планшет 900px --- */
 @media (max-width: 900px) {
   .hero {
-    padding: 90px 0 60px;
+    padding: 0;
     min-height: unset;
   }
   .hero__subtitle { max-width: 100%; }
