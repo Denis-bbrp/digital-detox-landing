@@ -8,7 +8,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+    ym(109292733,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/109292733" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9HLMJ9QW0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D9HLMJ9QW0');
+  </script>
 </head>
 <body>
 
@@ -29,7 +48,7 @@
         </picture>
         <div class="hero__photo-overlay">
           <p class="hero__overlay-text">Начни жить без тревоги,<br>лени и апатии</p>
-          <a href="YOUR_TG_LINK" class="hero__overlay-btn" target="_blank" rel="noopener">
+          <a href="https://t.me/+kth_vQIBJtYwZTVl" class="hero__overlay-btn" target="_blank" rel="noopener">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
               <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -342,6 +361,10 @@
                 <input type="email" name="email" placeholder="Email" autocomplete="email" required>
               </div>
             </div>
+            <label class="form-consent">
+              <input type="checkbox" name="consent" required>
+              <span>Нажимая кнопку, я соглашаюсь с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a> и даю согласие на обработку персональных данных</span>
+            </label>
             <div class="form-error" id="form-cta-error" hidden></div>
             <button type="submit" class="btn btn--white btn--full">
               <span class="btn__text">Пойти на цифровой детокс — 5 000 ₽</span>
@@ -352,6 +375,7 @@
               </span>
             </button>
           </form>
+          <div id="yookassa-widget" hidden></div>
         </div>
       </div>
     </section>
@@ -359,12 +383,23 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer__inner">
-      <p class="footer__logo">Цифровой детокс</p>
-      <p class="footer__copy">© 2025 — Все права защищены</p>
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__logo">Цифровой детокс</p>
+        <nav class="footer__links">
+          <a href="privacy.html">Политика конфиденциальности</a>
+          <a href="offer.html">Публичная оферта</a>
+          <a href="cookie.html">Политика cookie</a>
+        </nav>
+      </div>
+      <div class="footer__legal">
+        <p>ИП Цедик Анастасия Андреевна &nbsp;·&nbsp; ИНН: 505019180800 &nbsp;·&nbsp; ОГРНИП: 325200000082578</p>
+        <p><a href="mailto:nezalipay.team@gmail.com">nezalipay.team@gmail.com</a> &nbsp;·&nbsp; © 2025 — Все права защищены</p>
+      </div>
     </div>
   </footer>
 
+  <script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

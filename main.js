@@ -4,9 +4,8 @@
 
 // ===== КОНФИГУРАЦИЯ =====
 const CONFIG = {
-  formspreeId:      'YOUR_FORM_ID',    // Заменить на ID из formspree.io
-  yookassaToken:    'YOUR_PAYMENT_TOKEN', // Заменить на токен из ЮKassa
-  returnUrl:        'https://your-domain.ru/thanks.html', // Домен после замены
+  formspreeId: 'xvzyggjn',
+  returnUrl:   'https://nezalipay.ru/thanks.html',
 };
 
 // ===== SCROLL-АНИМАЦИИ =====
@@ -38,26 +37,27 @@ function initAnimations() {
 }
 
 // ===== ЮKassa =====
-function openYooKassa() {
-  // Когда будет реальный токен — удали alert и раскомментируй виджет ниже
-  alert(
-    '⚠️ Для подключения оплаты:\n\n' +
-    '1. Войдите в личный кабинет ЮKassa\n' +
-    '2. Создайте платёж через API и получите confirmation_token\n' +
-    '3. Замените YOUR_PAYMENT_TOKEN в main.js\n' +
-    '4. Замените your-domain.ru на ваш домен'
-  );
+async function openYooKassa(errorEl) {
+  try {
+    const res = await fetch('/api/create-payment', { method: 'POST' });
+    if (!res.ok) throw new Error('payment-api-error');
+    const { token } = await res.json();
 
-  /*
-  const checkout = new window.YooMoneyCheckoutWidget({
-    confirmation_token: CONFIG.yookassaToken,
-    return_url: CONFIG.returnUrl,
-    error_callback: function (error) {
-      console.error('YooKassa error:', error);
-    },
-  });
-  checkout.render('yookassa-widget');
-  */
+    const widgetEl = document.getElementById('yookassa-widget');
+    widgetEl.hidden = false;
+    widgetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    const checkout = new window.YooMoneyCheckoutWidget({
+      confirmation_token: token,
+      return_url: CONFIG.returnUrl,
+      error_callback: function (error) {
+        console.error('YooKassa error:', error);
+      },
+    });
+    checkout.render('yookassa-widget');
+  } catch {
+    showError(errorEl, 'Ошибка при открытии оплаты. Напишите нам: nezalipay.team@gmail.com');
+  }
 }
 
 // ===== ОБРАБОТКА ФОРМ =====
@@ -74,6 +74,7 @@ function handleFormSubmit(formEl) {
     // --- Валидация ---
     let isValid = true;
     inputs.forEach((input) => {
+      if (input.type === 'checkbox') return;
       input.classList.remove('input-error');
       if (!input.value.trim()) {
         input.classList.add('input-error');
@@ -84,6 +85,13 @@ function handleFormSubmit(formEl) {
         isValid = false;
       }
     });
+
+    const consent = formEl.querySelector('input[type="checkbox"]');
+    if (consent && !consent.checked) {
+      isValid = false;
+      showError(errorEl, 'Необходимо согласие на обработку персональных данных');
+      return;
+    }
 
     if (!isValid) {
       showError(errorEl, 'Пожалуйста, заполни все поля');
@@ -109,9 +117,8 @@ function handleFormSubmit(formEl) {
       );
 
       if (response.ok) {
-        // Контакт сохранён — открываем оплату
         setLoading(btn, btnText, btnLoader, false);
-        openYooKassa();
+        openYooKassa(errorEl);
       } else {
         throw new Error('Formspree error');
       }
@@ -213,9 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
   initGallery();
 
-  const heroForm = document.getElementById('lead-form-hero');
-  const ctaForm  = document.getElementById('lead-form-cta');
-
-  if (heroForm) handleFormSubmit(heroForm);
-  if (ctaForm)  handleFormSubmit(ctaForm);
+  const ctaForm = document.getElementById('lead-form-cta');
+  if (ctaForm) handleFormSubmit(ctaForm);
 });
