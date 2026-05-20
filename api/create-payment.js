@@ -6,6 +6,8 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'YooKassa env vars not set' });
   }
 
+  const { email = '', name = '' } = req.body || {};
+
   const credentials = Buffer.from(`${YOOKASSA_SHOP_ID}:${YOOKASSA_SECRET_KEY}`).toString('base64');
   const idempotenceKey = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 
@@ -24,6 +26,7 @@ export default async function handler(req, res) {
         return_url: 'https://nezalipay.ru/thanks.html',
       },
       description: 'Курс «Цифровой детокс» — 21 день',
+      metadata: { email, name },
     }),
   });
 
