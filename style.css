@@ -585,6 +585,7 @@ input { font-family: inherit; }
   font-weight: 700;
   margin-bottom: 24px;
   line-height: 1.4;
+  text-align: center;
 }
 .skills-grid {
   display: flex;
