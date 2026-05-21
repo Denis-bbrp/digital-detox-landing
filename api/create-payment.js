@@ -11,24 +11,29 @@ export default async function handler(req, res) {
   const credentials = Buffer.from(`${YOOKASSA_SHOP_ID}:${YOOKASSA_SECRET_KEY}`).toString('base64');
   const idempotenceKey = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 
-  const response = await fetch('https://api.yookassa.ru/v3/payments', {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${credentials}`,
-      'Idempotence-Key': idempotenceKey,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      amount: { value: '5000.00', currency: 'RUB' },
-      capture: true,
-      confirmation: {
-        type: 'embedded',
-        return_url: 'https://nezalipay.ru/thanks.html',
+  let response;
+  try {
+    response = await fetch('https://api.yookassa.ru/v3/payments', {
+      method: 'POST',
+      headers: {
+        Authorization: `Basic ${credentials}`,
+        'Idempotence-Key': idempotenceKey,
+        'Content-Type': 'application/json',
       },
-      description: 'Курс «Цифровой детокс» — 21 день',
-      metadata: { email, name },
-    }),
-  });
+      body: JSON.stringify({
+        amount: { value: '5000.00', currency: 'RUB' },
+        capture: true,
+        confirmation: {
+          type: 'embedded',
+          return_url: 'https://nezalipay.ru/thanks.html',
+        },
+        description: 'Курс «Цифровой детокс» — 21 день',
+        metadata: { email, name },
+      }),
+    });
+  } catch (err) {
+    return res.status(502).json({ error: 'network-error', detail: err.message });
+  }
 
   if (!response.ok) {
     const err = await response.json();
