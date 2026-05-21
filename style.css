@@ -95,7 +95,7 @@ input { font-family: inherit; }
   position: absolute;
   left: 16px;
   right: 16px;
-  bottom: 28%;
+  bottom: 8%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -274,6 +274,7 @@ input { font-family: inherit; }
 .btn--red {
   background: #E53935;
   color: #fff;
+  font-size: 32px;
 }
 .btn--red:hover {
   background: #C62828;
