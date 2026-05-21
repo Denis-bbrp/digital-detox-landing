@@ -37,12 +37,12 @@ function initAnimations() {
 }
 
 // ===== ЮKassa =====
-async function openYooKassa(errorEl, email, name) {
+async function openYooKassa(errorEl, email, name, phone) {
   try {
     const res = await fetch('/api/create-payment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, name }),
+      body: JSON.stringify({ email, name, phone }),
     });
     if (!res.ok) throw new Error('payment-api-error');
     const { token } = await res.json();
@@ -124,7 +124,8 @@ function handleFormSubmit(formEl) {
         setLoading(btn, btnText, btnLoader, false);
         const email = formEl.querySelector('input[type="email"]')?.value?.trim() || '';
         const name  = formEl.querySelector('input[name="name"]')?.value?.trim() || '';
-        openYooKassa(errorEl, email, name);
+        const phone = formEl.querySelector('input[name="phone"]')?.value?.trim() || '';
+        openYooKassa(errorEl, email, name, phone);
       } else {
         throw new Error('Formspree error');
       }

@@ -13,12 +13,33 @@ export default async function handler(req, res) {
 
   const email = payment.metadata?.email;
   const name  = payment.metadata?.name || 'Привет';
+  const phone = payment.metadata?.phone || '';
 
   if (email) {
     await sendConfirmationEmail(email, name);
   }
 
+  await logToSheets({ payment, name, email: email || '', phone });
+
   res.status(200).end();
+}
+
+async function logToSheets({ payment, name, email, phone }) {
+  const url = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  if (!url) return;
+  try {
+    await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        date: new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' }),
+        name, email, phone,
+        amount: payment.amount?.value || '5000.00',
+        payment_id: payment.id,
+        status: 'оплачено',
+      }),
+    });
+  } catch {}
 }
 
 async function sendConfirmationEmail(email, name) {
