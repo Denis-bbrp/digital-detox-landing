@@ -275,6 +275,8 @@ input { font-family: inherit; }
   background: #E53935;
   color: #fff;
   font-size: 32px;
+  padding-left: 56px;
+  padding-right: 56px;
 }
 .btn--red:hover {
   background: #C62828;
@@ -939,6 +941,7 @@ input { font-family: inherit; }
   .section__title { letter-spacing: -0.015em; }
 
   .hero__photo-top { min-height: unset; object-fit: unset; }
+  .hero__photo-overlay { bottom: 18%; }
 
   .cards-grid { grid-template-columns: 1fr; gap: 12px; }
   .card { padding: 20px 18px; }
