@@ -275,8 +275,7 @@ input { font-family: inherit; }
   background: #E53935;
   color: #fff;
   font-size: 32px;
-  padding-left: 56px;
-  padding-right: 56px;
+  padding: 34px 112px;
 }
 .btn--red:hover {
   background: #C62828;
