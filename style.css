@@ -986,6 +986,7 @@ input { font-family: inherit; }
 
   .form-group input { padding: 13px 15px; font-size: 16px; /* iOS zoom fix */ }
   .btn { padding: 15px 24px; font-size: 15px; }
+  .btn--red { padding: 34px 112px; font-size: 32px; }
 
   .section { padding: 52px 0; }
   .section__header { margin-bottom: 32px; }
