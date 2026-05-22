@@ -37,6 +37,9 @@ export default async function handler(req, res) {
 
   if (!response.ok) {
     const err = await response.json();
+    console.error('YooKassa error:', JSON.stringify(err));
+    console.error('ShopID:', YOOKASSA_SHOP_ID);
+    console.error('Key prefix:', YOOKASSA_SECRET_KEY.slice(0, 8));
     return res.status(502).json({ error: err });
   }
 
