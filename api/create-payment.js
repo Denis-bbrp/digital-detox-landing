@@ -29,6 +29,17 @@ export default async function handler(req, res) {
         },
         description: 'Курс «Цифровой детокс» — 21 день',
         metadata: { email, name, phone },
+        receipt: {
+          customer: { email: email || 'noreply@nezalipay.ru' },
+          items: [{
+            description: 'Курс «Цифровой детокс» — 21 день',
+            quantity: '1.00',
+            amount: { value: '5000.00', currency: 'RUB' },
+            vat_code: 1,
+            payment_mode: 'full_payment',
+            payment_subject: 'service',
+          }],
+        },
       }),
     });
   } catch (err) {
