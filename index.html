@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>Цифровой детокс — вернись к себе за 21 день</title>
   <meta name="description" content="Онлайн-курс «Цифровой детокс»: 21 день в закрытом Telegram-канале. Верни энергию, внимание и контроль над своей жизнью. Старт 1 июня. 2700 ₽.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Bebas+Neue&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -18,8 +18,8 @@
     (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
     ym(109292733,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
   </script>
-  <noscript><div><img src="https://mc.yandex.ru/watch/109292733" style="position:absolute;left:-9999px;" alt=""/></div></noscript>
-  <!-- /Yandex.Metrika counter -->
+  <noscript><div><img src="https://mc.yandex.ru/watch/109292733" style="position:absolute;left:-9999px;" alt=""></div></noscript>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9HLMJ9QW0"></script>
   <script>
@@ -28,398 +28,295 @@
     gtag('js', new Date());
     gtag('config', 'G-D9HLMJ9QW0');
   </script>
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --red:    #c8401a;
+  --dark:   #2d2d18;
+  --cream:  #f2f0e3;
+  --warm:   #1e1e0f;
+  --muted:  #7a7a58;
+  --border: #d8d6c0;
+  --white:  #fafaf5;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream); color: var(--dark);
+  font-family: 'Manrope', sans-serif; -webkit-font-smoothing: antialiased;
+  max-width: 480px; margin: 0 auto; overflow-x: hidden;
+}
+/* HERO */
+.hero { position: relative; height: 100svh; min-height: 580px; max-height: 900px; display: flex; flex-direction: column; overflow: hidden; }
+.hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 65% top; display: block; }
+.hero-grad { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(18,18,8,.6) 0%, rgba(18,18,8,.15) 20%, rgba(18,18,8,.35) 45%, rgba(18,18,8,.7) 68%, rgba(18,18,8,.97) 100%); pointer-events: none; }
+.hero-top { position: relative; z-index: 3; padding: 14px 16px 0; display: flex; align-items: center; justify-content: space-between; }
+.timer-pill { background: var(--red); color: #fff; font-size: 10px; font-weight: 700; padding: 5px 11px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
+.timer-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.7); animation: blink 1.2s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+#hero-timer { font-size: 11px; }
+.flow-badge { background: rgba(255,255,255,.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 10px; font-weight: 700; padding: 5px 11px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
+.hero-bottom { position: relative; z-index: 3; padding: 0 18px 22px; margin-top: auto; }
+.hero-tag { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 8px; }
+.hero-h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(28px, 8vw, 38px); line-height: 1.05; letter-spacing: -.02em; color: #fff; margin-bottom: 8px; text-shadow: 0 2px 20px rgba(0,0,0,.7), 0 1px 4px rgba(0,0,0,.9); }
+.hero-sub { font-size: 12px; color: rgba(255,255,255,.85); line-height: 1.5; margin-bottom: 16px; text-shadow: 0 1px 8px rgba(0,0,0,.8); }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.chip { background: rgba(255,255,255,.1); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.9); font-size: 11px; font-weight: 600; padding: 6px 12px; border-radius: 24px; }
+.hero-cta { display: flex; align-items: center; justify-content: space-between; background: var(--red); color: #fff; padding: 16px 18px; border-radius: 16px; border: none; width: 100%; cursor: pointer; text-decoration: none; transition: transform .1s, opacity .1s; }
+.hero-cta:active { transform: scale(.98); opacity: .9; }
+.cta-left-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; display: block; }
+.cta-sub-text { font-size: 12px; opacity: .55; margin-top: 2px; display: block; }
+.cta-price { background: rgba(255,255,255,.15); border-radius: 10px; padding: 8px 12px; text-align: center; flex-shrink: 0; }
+.price-old { font-size: 10px; text-decoration: line-through; opacity: .5; display: block; line-height: 1; }
+.price-new { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 22px; display: block; line-height: 1.1; letter-spacing: .03em; }
+/* СЕКЦИИ */
+section { padding: 40px 18px; }
+.section-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+.section-h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 24px; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 20px; }
+/* ПЕРВЫЙ ПОТОК */
+.flow-section { background: #eceadc; border-top: 1px solid #d0cebc; border-bottom: 1px solid #d0cebc; padding: 20px 18px; display: flex; align-items: center; gap: 14px; }
+.flow-icon { font-size: 36px; flex-shrink: 0; line-height: 1; }
+.flow-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px; color: var(--dark); margin-bottom: 3px; }
+.flow-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+/* БЕНЕФИТЫ */
+.benefits-section { background: var(--cream); }
+.benefit-card { background: var(--white); border-radius: 14px; padding: 16px; margin-bottom: 10px; display: flex; gap: 14px; align-items: flex-start; }
+.benefit-card:last-child { margin-bottom: 0; }
+.benefit-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--white); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+.benefit-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; margin-bottom: 3px; }
+.benefit-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+/* КАК УСТРОЕНО */
+.how-section { background: var(--dark); color: #fff; }
+.how-section .section-h2 { color: #fff; }
+.how-section .section-eyebrow { color: rgba(255,255,255,.4); }
+.steps { display: flex; flex-direction: column; }
+.step { display: grid; grid-template-columns: 48px 1fr; }
+.step-left { display: flex; flex-direction: column; align-items: center; }
+.step-num { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; color: rgba(255,255,255,.5); flex-shrink: 0; }
+.step-line { width: 1px; flex: 1; background: rgba(255,255,255,.08); margin: 6px 0; min-height: 32px; }
+.step-body { padding: 8px 0 28px 16px; }
+.step-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 4px; }
+.step-desc { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.5; }
+.step:last-child .step-body { padding-bottom: 0; }
+.step:last-child .step-line { display: none; }
+/* АВТОР */
+.author-section { background: var(--cream); }
+.author-card { background: var(--white); border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
+.author-swiper { position: relative; }
+.author-swiper__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.author-swiper__track::-webkit-scrollbar { display: none; }
+.author-swiper__item { flex: 0 0 100%; scroll-snap-align: start; aspect-ratio: 3/4; overflow: hidden; }
+.author-swiper__item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.author-swiper__dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; }
+.author-swiper__dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.45); transition: background .2s, transform .2s; }
+.author-swiper__dot.active { background: #fff; transform: scale(1.3); }
+.author-top { background: var(--warm); padding: 16px 20px; }
+.author-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px; color: #fff; margin-bottom: 2px; }
+.author-role { font-size: 11px; color: rgba(255,255,255,.45); }
+.author-body { padding: 20px; }
+.author-story { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.author-story p { margin-bottom: 12px; }
+.author-story p:last-child { margin-bottom: 0; }
+.author-story strong { color: var(--dark); font-weight: 600; }
+/* ГАРАНТИЯ */
+.guarantee-section { background: #eceadc; border-top: 1px solid #d0cebc; border-bottom: 1px solid #d0cebc; padding: 24px 18px; }
+.guarantee-card { display: flex; gap: 16px; align-items: flex-start; }
+.guarantee-icon { font-size: 40px; flex-shrink: 0; line-height: 1; }
+.guarantee-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 17px; color: var(--dark); margin-bottom: 6px; }
+.guarantee-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+/* FAQ */
+.faq-section { background: var(--cream); }
+details { border-bottom: 1px solid var(--border); padding: 16px 0; }
+details:last-of-type { border-bottom: none; }
+summary { font-weight: 600; font-size: 14px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--dark); }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font-size: 20px; color: var(--muted); font-weight: 300; flex-shrink: 0; transition: transform .2s; }
+details[open] summary::after { transform: rotate(45deg); }
+.faq-answer { font-size: 13px; color: var(--muted); line-height: 1.6; padding-top: 10px; }
+/* ФИНАЛЬНЫЙ CTA */
+.final-cta-section { background: var(--dark); padding: 40px 18px 48px; }
+.final-cta-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 26px; color: #fff; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 8px; text-align: center; }
+.final-cta-sub { font-size: 13px; color: rgba(255,255,255,.4); text-align: center; margin-bottom: 24px; line-height: 1.5; }
+/* Форма */
+.cta-form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.cta-form input { width: 100%; padding: 14px 16px; background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.18); border-radius: 12px; font-family: 'Manrope', sans-serif; font-size: 16px; color: #fff; outline: none; -webkit-appearance: none; transition: border-color .2s, background .2s; }
+.cta-form input::placeholder { color: rgba(255,255,255,.35); }
+.cta-form input:focus { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.5); }
+.cta-form input.input-error { border-color: #ef4444; background: rgba(239,68,68,.12); }
+.promo-hint { font-size: 12px; padding: 2px 0 0 2px; line-height: 1.4; }
+.promo-valid { color: #6ee7b7; }
+.promo-invalid { color: rgba(255,255,255,.35); }
+.form-consent { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; padding: 4px 0; }
+.form-consent input[type="checkbox"] { width: 18px; height: 18px; min-width: 18px; padding: 0; border-radius: 4px; margin-top: 1px; accent-color: var(--red); cursor: pointer; }
+.form-consent span { font-size: 11px; color: rgba(255,255,255,.3); line-height: 1.5; }
+.form-consent a { color: rgba(255,255,255,.5); text-decoration: underline; }
+.form-error { font-size: 12px; color: #fca5a5; text-align: center; padding: 4px 0; }
+.submit-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--red); color: #fff; padding: 18px 20px; border-radius: 18px; border: none; width: 100%; cursor: pointer; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: .01em; transition: transform .1s, opacity .1s; margin-top: 6px; }
+.submit-btn:active { transform: scale(.98); opacity: .9; }
+.submit-btn:disabled { opacity: .65; cursor: default; }
+.btn__loader { display: flex; gap: 5px; align-items: center; }
+.loader-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: ldot .8s ease-in-out infinite; }
+.loader-dot:nth-child(2) { animation-delay: .15s; }
+.loader-dot:nth-child(3) { animation-delay: .3s; }
+@keyframes ldot { 0%,100%{opacity:.3;transform:scale(.75)} 50%{opacity:1;transform:scale(1)} }
+.final-trust { display: flex; justify-content: center; gap: 16px; margin-top: 18px; flex-wrap: wrap; }
+.final-trust-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: rgba(255,255,255,.3); }
+/* FOOTER */
+footer { background: #111; padding: 20px 18px; font-size: 10px; color: rgba(255,255,255,.2); text-align: center; line-height: 1.9; }
+footer a { color: rgba(255,255,255,.3); text-decoration: underline; }
+</style>
 </head>
 <body>
 
-
-  <main>
-
-    <!-- ===== БЛОК 1: HERO — КИНО-ГЕРОЙ ===== -->
-    <section class="hero hero--cinema" id="hero">
-      <img class="hero-cinema__img" src="assets/mobile-hero.png" alt="Цифровой детокс">
-      <div class="hero-cinema__grad"></div>
-
-      <div class="hero-cinema__top">
-        <div class="hero-cinema__timer-pill">
-          <div class="hero-cinema__timer-dot"></div>
-          <span id="hero-timer">1д 00ч 00м 00с</span>
-        </div>
-        <div class="hero-cinema__flow-badge">🚀 Первый поток</div>
-      </div>
-
-      <div class="hero-cinema__bottom">
-        <span class="hero-cinema__tag">Цифровой детокс · 21 день</span>
-        <h1 class="hero-cinema__h1">Живи<br>в реальности,<br>а не в экране</h1>
-        <p class="hero-cinema__sub">21 день без лишнего шума. Больше энергии,<br>фокуса и настоящих моментов.</p>
-        <div class="hero-cinema__chips">
-          <span class="hero-cinema__chip">🌿 Меньше стресса</span>
-          <span class="hero-cinema__chip">🎯 Больше фокуса</span>
-          <span class="hero-cinema__chip">⚡ Больше энергии</span>
-          <span class="hero-cinema__chip">👥 Живые отношения</span>
-        </div>
-        <a href="#cta" class="hero-cinema__cta">
-          <span class="hero-cinema__cta-left">
-            <span class="hero-cinema__cta-main">Записаться</span>
-            <span class="hero-cinema__cta-sub">→ перейти к оплате</span>
-          </span>
-          <span class="hero-cinema__cta-price">
-            <span class="hero-cinema__price-old">5 000 ₽</span>
-            <span class="hero-cinema__price-new">2 700 ₽</span>
-          </span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ===== БЛОК 2: УЗНАЁШЬ СЕБЯ? ===== -->
-    <section class="section recognize-section" id="recognize">
-      <div class="container">
-        <div class="section__header animate-in">
-          <h2 class="section__title">Телефон забирает у тебя<br>больше, чем время</h2>
-        </div>
-
-        <ul class="checklist">
-          <li class="checklist__item animate-in">берёшь телефон на 5 минут и исчезаешь на час</li>
-          <li class="checklist__item animate-in">постоянно проверяешь уведомления</li>
-          <li class="checklist__item animate-in">стало сложнее концентрироваться</li>
-          <li class="checklist__item animate-in">нет сил и энергии</li>
-          <li class="checklist__item animate-in">всё труднее читать книги</li>
-          <li class="checklist__item animate-in">сложно делать важные дела</li>
-          <li class="checklist__item animate-in">ничего особо не хочется</li>
-          <li class="checklist__item animate-in">день проходит, а ощущение, что ничего не сделал</li>
-        </ul>
-
-        <div class="big-quote animate-in">
-          <p class="big-quote__text">Проблема не в твоей слабой силе воли</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== БЛОК 3: ВОЙНА ЗА ВНИМАНИЕ (тёмный) ===== -->
-    <section class="section section--dark war-section" id="war">
-      <div class="container">
-        <div class="animate-in">
-          <h2 class="section__title">Твой мозг изучают каждый день</h2>
-          <p class="war__intro">Раньше внимание людей забирали сигареты, алкоголь и телевизор. Сегодня это делает телефон. Социальные сети, приложения и алгоритмы ежедневно собирают информацию о тебе.</p>
-        </div>
-
-        <div class="war__track animate-in">
-          <p class="war__track-label">Они изучают:</p>
-          <ul class="war__pills">
-            <li>что тебя цепляет</li>
-            <li>когда тебе скучно</li>
-            <li>когда ты устаёшь</li>
-            <li>что вызывает у тебя эмоции</li>
-            <li>на чём ты задерживаешь взгляд</li>
-          </ul>
-        </div>
-
-        <div class="animate-in">
-          <p class="war__conclusion">Их задача проста: удерживать тебя внутри как можно дольше. Потому что чем больше времени ты проводишь в телефоне — тем больше на тебе зарабатывают.</p>
-        </div>
-
-        <div class="war__statement animate-in">
-          <p>За твоё внимание идёт<br>настоящая война</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== БЛОК 4: ЧТО УЗНАЕШЬ ===== -->
-    <section class="section learn-section" id="learn">
-      <div class="container">
-        <div class="section__header animate-in">
-          <h2 class="section__title">На курсе ты узнаешь</h2>
-        </div>
-
-        <div class="cards-grid">
-          <div class="card animate-in">
-            <span class="card__icon">✓</span>
-            <p>кто зарабатывает на твоём внимании</p>
-          </div>
-          <div class="card animate-in">
-            <span class="card__icon">✓</span>
-            <p>кому выгодно, чтобы ты сидел часами в телефоне</p>
-          </div>
-          <div class="card animate-in">
-            <span class="card__icon">✓</span>
-            <p>как работают механизмы цифровой зависимости</p>
-          </div>
-          <div class="card animate-in">
-            <span class="card__icon">✓</span>
-            <p>почему приложения так сложно закрыть</p>
-          </div>
-          <div class="card animate-in">
-            <span class="card__icon">✓</span>
-            <p>какие технологии заставляют возвращаться снова</p>
-          </div>
-          <div class="card animate-in">
-            <span class="card__icon">✓</span>
-            <p>как социальные сети управляют привычками</p>
-          </div>
-          <div class="card animate-in">
-            <span class="card__icon">✓</span>
-            <p>почему телефон стал машиной захвата внимания</p>
-          </div>
-          <div class="card animate-in">
-            <span class="card__icon">✓</span>
-            <p>как выйти из этой ловушки</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== БЛОК 5: ПРОГРАММА ===== -->
-    <section class="section section--tint program-section" id="program">
-      <div class="container">
-        <div class="section__header animate-in">
-          <h2 class="section__title">Не просто теория<br>Только практика</h2>
-        </div>
-
-        <div class="program__grid">
-          <ul class="program__list animate-in">
-            <li class="program__item">
-              <span class="program__num">01</span>
-              <span>Ежедневные задания</span>
-            </li>
-            <li class="program__item">
-              <span class="program__num">02</span>
-              <span>Прямые эфиры</span>
-            </li>
-            <li class="program__item">
-              <span class="program__num">03</span>
-              <span>Разбор механизмов манипуляций</span>
-            </li>
-            <li class="program__item">
-              <span class="program__num">04</span>
-              <span>Готовые настройки телефона</span>
-            </li>
-            <li class="program__item">
-              <span class="program__num">05</span>
-              <span>Техники против цифровой зависимости</span>
-            </li>
-            <li class="program__item">
-              <span class="program__num">06</span>
-              <span>Создание новых привычек</span>
-            </li>
-            <li class="program__item">
-              <span class="program__num">07</span>
-              <span>Поддержка участников</span>
-            </li>
-            <li class="program__item">
-              <span class="program__num">08</span>
-              <span>Понятные пошаговые инструкции</span>
-            </li>
-          </ul>
-
-          <div class="live-card animate-in">
-            <div class="live-card__tag">Прямые эфиры</div>
-            <h3 class="live-card__title">На эфирах разберём:</h3>
-            <ul class="live-card__list">
-              <li>Кто и как борется за ваше внимание</li>
-              <li>Кому выгодно, чтобы вы проводили часы в телефоне</li>
-              <li>Как устроены механизмы зависимости</li>
-              <li>Почему приложения знают ваши привычки лучше вас</li>
-              <li>Как вернуть контроль над своим вниманием и мышлением</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== БЛОК 6: ДЕТИ ===== -->
-    <section class="section children-section" id="children">
-      <div class="container">
-        <div class="section__header animate-in">
-          <h2 class="section__title">А теперь самое<br>важное — дети</h2>
-        </div>
-
-        <div class="children__grid">
-          <div class="animate-in">
-            <p class="children__intro">Если взрослому человеку сложно сопротивляться алгоритмам, представьте ребёнка. Когда ребёнок с раннего возраста получает постоянный доступ к телефону, коротким видео, играм и бесконечной ленте, мозг начинает привыкать к быстрым удовольствиям.</p>
-            <p class="children__sub">Со временем родители замечают:</p>
-            <ul class="checklist checklist--compact">
-              <li class="checklist__item">ребёнку становится трудно долго удерживать внимание</li>
-              <li class="checklist__item">обычные игры и прогулки становятся скучными</li>
-              <li class="checklist__item">становится сложнее концентрироваться</li>
-              <li class="checklist__item">снижается интерес к обучению</li>
-              <li class="checklist__item">пропадает любопытство</li>
-            </ul>
-          </div>
-
-          <div class="skills-block animate-in">
-            <h3 class="skills-block__title">В детстве формируются<br>важнейшие навыки:</h3>
-            <div class="skills-grid">
-              <div class="skill-item">
-                <span class="skill-item__icon">&#9679;</span>
-                <span>Внимание</span>
-              </div>
-              <div class="skill-item">
-                <span class="skill-item__icon">&#9679;</span>
-                <span>Усидчивость</span>
-              </div>
-              <div class="skill-item">
-                <span class="skill-item__icon">&#9679;</span>
-                <span>Интерес к познанию</span>
-              </div>
-              <div class="skill-item">
-                <span class="skill-item__icon">&#9679;</span>
-                <span>Общение</span>
-              </div>
-              <div class="skill-item">
-                <span class="skill-item__icon">&#9679;</span>
-                <span>Достижение целей</span>
-              </div>
-            </div>
-            <p class="skills-block__note">Если большую часть времени внимание ребёнка постоянно забирает экран, эти навыки могут развиваться слабее.</p>
-          </div>
-        </div>
-
-        <div class="children__quote animate-in">
-          <p>Наша задача — не забрать<br>телефон у детей<br>Наша задача — не позволить<br>телефону забрать у них детство</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== БЛОК 7: АВТОР ===== -->
-    <section class="section author-section" id="author">
-      <div class="container">
-        <p class="section__eyebrow">Автор</p>
-        <h2 class="section__title">Кто это создал</h2>
-
-        <div class="author-card animate-in">
-          <div class="author-swiper">
-            <div class="author-swiper__track">
-              <div class="author-swiper__item">
-                <img src="assets/nik2.jpg" alt="Никита Вохмянин" style="object-position: center 35%;">
-              </div>
-              <div class="author-swiper__item">
-                <img src="assets/nik1.jpg" alt="Никита Вохмянин" style="object-position: 18% 40%;">
-              </div>
-              <div class="author-swiper__item">
-                <img src="assets/nik3.jpg" alt="Никита Вохмянин" style="object-position: center 10%;">
-              </div>
-            </div>
-            <div class="author-swiper__dots">
-              <span class="author-swiper__dot active"></span>
-              <span class="author-swiper__dot"></span>
-              <span class="author-swiper__dot"></span>
-            </div>
-          </div>
-
-          <div class="author-card__header">
-            <div class="author-card__name">Никита Вохмянин</div>
-            <div class="author-card__role">Автор курса «Цифровой детокс»</div>
-          </div>
-
-          <div class="author-card__body">
-            <p class="author-card__bio">Несколько лет назад я поймал себя на том, что <strong>первые 40 минут после пробуждения</strong> просто лежал и скроллил. Без причины. Просто не мог остановиться.</p>
-            <p class="author-card__bio">Апатия, рассеянность, ощущение что <strong>жизнь проходит мимо</strong> — всё это было моим обычным фоном. Я читал про цифровую зависимость, но советы «просто удали соцсети» не работали.</p>
-            <p class="author-card__bio">Тогда я начал разбирать нейробиологию привычек и экономику внимания. Собрал систему из практик, которые <strong>работали без силы воли</strong>. За 21 день изменил своё утро, потом день, потом вечер.</p>
-            <p class="author-card__bio">Теперь я упаковал это в курс — чтобы ты прошёл тот же путь <strong>быстрее и с поддержкой</strong>.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Лайтбокс -->
-    <div class="lightbox" id="lightbox">
-      <button class="lightbox__close" id="lb-close">✕</button>
-      <button class="lightbox__prev" id="lb-prev">‹</button>
-      <img class="lightbox__img" id="lb-img" src="" alt="">
-      <button class="lightbox__next" id="lb-next">›</button>
+<!-- HERO -->
+<section class="hero" id="top">
+  <img class="hero-img" src="assets/mobile-hero.png" alt="Цифровой детокс">
+  <div class="hero-grad"></div>
+  <div class="hero-top">
+    <div class="timer-pill"><div class="timer-dot"></div><span id="hero-timer">2д 00ч 00м 00с</span></div>
+    <div class="flow-badge">🚀 Первый поток</div>
+  </div>
+  <div class="hero-bottom">
+    <span class="hero-tag">Цифровой детокс · 21 день</span>
+    <h1 class="hero-h1">Живи<br>в реальности,<br>а не в экране</h1>
+    <p class="hero-sub">21 день без лишнего шума. Больше энергии,<br>фокуса и настоящих моментов.</p>
+    <div class="hero-chips">
+      <span class="chip">🌿 Меньше стресса</span>
+      <span class="chip">🎯 Больше фокуса</span>
+      <span class="chip">⚡ Больше энергии</span>
+      <span class="chip">👥 Живые отношения</span>
     </div>
+    <a href="#final-cta" class="hero-cta">
+      <div><span class="cta-left-text">Записаться</span><span class="cta-sub-text">→ перейти к оплате</span></div>
+      <div class="cta-price"><span class="price-old">5 000 ₽</span><span class="price-new">2 700 ₽</span></div>
+    </a>
+  </div>
+</section>
 
-    <!-- ===== БЛОК 8: РЕЗУЛЬТАТ ===== -->
-    <section class="section section--tint results-section" id="results">
-      <div class="container">
-        <div class="section__header animate-in">
-          <h2 class="section__title">Что изменится после курса</h2>
-        </div>
+<!-- ПЕРВЫЙ ПОТОК -->
+<div class="flow-section">
+  <div class="flow-icon">🚀</div>
+  <div>
+    <div class="flow-title">Открываем первый поток</div>
+    <div class="flow-desc">Войди в число первых — специальная цена только для основателей курса. После первого потока цена вырастет.</div>
+  </div>
+</div>
 
-        <ul class="checklist checklist--two-col animate-in">
-          <li class="checklist__item">уменьшится зависимость от телефона</li>
-          <li class="checklist__item">появится больше свободного времени</li>
-          <li class="checklist__item">станет легче концентрироваться</li>
-          <li class="checklist__item">вернётся энергия</li>
-          <li class="checklist__item">станет проще заниматься важными делами</li>
-          <li class="checklist__item">появится больше интереса к жизни</li>
-          <li class="checklist__item">уменьшится чувство постоянной усталости</li>
-          <li class="checklist__item">появится ощущение контроля над собой</li>
-        </ul>
+<!-- ЧТО ИЗМЕНИТСЯ -->
+<section class="benefits-section">
+  <p class="section-eyebrow">Результат</p>
+  <h2 class="section-h2">Что изменится<br>через 21 день</h2>
+  <div class="benefit-card"><div class="benefit-icon">🌿</div><div><div class="benefit-title">Меньше стресса и тревоги</div><div class="benefit-desc">Ты перестанешь автоматически тянуться к телефону при первом дискомфорте. Появится пространство для настоящего отдыха.</div></div></div>
+  <div class="benefit-card"><div class="benefit-icon">🎯</div><div><div class="benefit-title">Фокус и продуктивность</div><div class="benefit-desc">Мозг перестанет требовать постоянной стимуляции. Сложные задачи начнут решаться быстрее, а рассеянность уйдёт.</div></div></div>
+  <div class="benefit-card"><div class="benefit-icon">❤️</div><div><div class="benefit-title">Живые отношения</div><div class="benefit-desc">Ты снова начнёшь по-настоящему присутствовать рядом с близкими — без экрана в руках и мыслей в ленте.</div></div></div>
+  <div class="benefit-card"><div class="benefit-icon">⚡</div><div><div class="benefit-title">Энергия с утра</div><div class="benefit-desc">Утро без немедленной проверки уведомлений перезагружает день. Ты просыпаешься с собственными мыслями, а не с чужими.</div></div></div>
+</section>
 
-        <div class="results__quote animate-in">
-          <p>Телефон станет инструментом,<br>а не хозяином твоей жизни.</p>
-        </div>
+<!-- КАК УСТРОЕНО -->
+<section class="how-section" id="program">
+  <p class="section-eyebrow">Программа</p>
+  <h2 class="section-h2">Как устроен<br>курс</h2>
+  <div class="steps">
+    <div class="step"><div class="step-left"><div class="step-num">1</div><div class="step-line"></div></div><div class="step-body"><div class="step-title">15–20 минут в день</div><div class="step-desc">Никаких марафонов и долгих лекций. Короткое задание на день — и ты идёшь жить. Встраивается в любой режим.</div></div></div>
+    <div class="step"><div class="step-left"><div class="step-num">2</div><div class="step-line"></div></div><div class="step-body"><div class="step-title">Без удаления приложений</div><div class="step-desc">Не нужно ничего удалять и ни от чего отрекаться. Метод меняет отношения с телефоном изнутри — через практику, а не запреты.</div></div></div>
+    <div class="step"><div class="step-left"><div class="step-num">3</div><div class="step-line"></div></div><div class="step-body"><div class="step-title">Прямые эфиры и поддержка</div><div class="step-desc">Живые встречи с автором, разбор ситуаций, ответы на вопросы. Ты не один — есть группа и куратор рядом.</div></div></div>
+    <div class="step"><div class="step-left"><div class="step-num">4</div></div><div class="step-body"><div class="step-title">Результат уже с первой недели</div><div class="step-desc">Первые изменения — уже на 3–5 день. К концу 21 дня новые привычки закрепятся на уровне нейронных связей.</div></div></div>
+  </div>
+</section>
+
+<!-- ОБ АВТОРЕ -->
+<section class="author-section">
+  <p class="section-eyebrow">Автор</p>
+  <h2 class="section-h2">Кто это создал</h2>
+  <div class="author-card">
+    <div class="author-swiper">
+      <div class="author-swiper__track">
+        <div class="author-swiper__item"><img src="assets/nik2.jpg" alt="Никита Вохмянин" style="object-position: center 35%;"></div>
+        <div class="author-swiper__item"><img src="assets/nik1.jpg" alt="Никита Вохмянин" style="object-position: 18% 40%;"></div>
+        <div class="author-swiper__item"><img src="assets/nik3.jpg" alt="Никита Вохмянин" style="object-position: center 10%;"></div>
       </div>
-    </section>
-
-    <!-- ===== БЛОК 9: ФИНАЛЬНЫЙ CTA ===== -->
-    <section class="section cta-section" id="cta">
-      <div class="container">
-        <div class="cta__inner animate-in">
-          <h2 class="cta__title">Сколько часов жизни телефон<br>заберёт у тебя ещё?</h2>
-          <p class="cta__text">Если ничего не менять — через год привычки станут сильнее.<br>Начни возвращать своё внимание уже сейчас.</p>
-
-          <div class="badges badges--outline">
-            <span class="badge badge--outline">21 день</span>
-            <span class="badge badge--outline">Цифровой детокс</span>
-            <span class="badge badge--outline"><s style="opacity:.55;margin-right:6px">5 000 ₽</s>2 700 ₽</span>
-          </div>
-
-          <form id="lead-form-cta" class="lead-form lead-form--dark" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required>
-              </div>
-              <div class="form-group">
-                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
-              </div>
-              <div class="form-group">
-                <input type="email" name="email" placeholder="Email" autocomplete="email" required>
-              </div>
-            </div>
-            <div class="form-promo">
-              <input type="text" name="promo" placeholder="Промокод (если есть)" autocomplete="off" maxlength="32" class="promo-input">
-              <div class="promo-hint" hidden></div>
-            </div>
-            <label class="form-consent">
-              <input type="checkbox" name="consent" required>
-              <span>Нажимая кнопку, я соглашаюсь с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a> и даю согласие на обработку персональных данных</span>
-            </label>
-            <div class="form-error" id="form-cta-error" hidden></div>
-            <button type="submit" class="btn btn--red btn--full">
-              <span class="btn__text">Записаться</span>
-              <span class="btn__loader" hidden>
-                <span class="loader-dot"></span>
-                <span class="loader-dot"></span>
-                <span class="loader-dot"></span>
-              </span>
-            </button>
-          </form>
-          <div id="yookassa-widget" hidden></div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer__inner">
-        <p class="footer__logo">Цифровой детокс</p>
-        <nav class="footer__links">
-          <a href="privacy.html">Политика конфиденциальности</a>
-          <a href="offer.html">Публичная оферта</a>
-          <a href="cookie.html">Политика cookie</a>
-        </nav>
-      </div>
-      <div class="footer__legal">
-        <p>ИП Цедик Анастасия Андреевна &nbsp;·&nbsp; ИНН: 505019180800 &nbsp;·&nbsp; ОГРНИП: 325200000082578</p>
-        <p><a href="mailto:nezalipay.team@gmail.com">nezalipay.team@gmail.com</a> &nbsp;·&nbsp; © 2025 — Все права защищены</p>
+      <div class="author-swiper__dots">
+        <span class="author-swiper__dot active"></span>
+        <span class="author-swiper__dot"></span>
+        <span class="author-swiper__dot"></span>
       </div>
     </div>
-  </footer>
+    <div class="author-top">
+      <div class="author-name">Никита Вохмянин</div>
+      <div class="author-role">Автор курса «Цифровой детокс»</div>
+    </div>
+    <div class="author-body">
+      <div class="author-story">
+        <p>Несколько лет назад я поймал себя на том, что <strong>первые 40 минут после пробуждения</strong> просто лежал и скроллил. Без причины. Просто не мог остановиться.</p>
+        <p>Апатия, рассеянность, ощущение что <strong>жизнь проходит мимо</strong> — всё это было моим обычным фоном. Я читал про цифровую зависимость, но советы «просто удали соцсети» не работали.</p>
+        <p>Тогда я начал разбирать нейробиологию привычек и экономику внимания. Собрал систему из практик, которые <strong>работали без силы воли</strong>. За 21 день изменил своё утро, потом день, потом вечер.</p>
+        <p>Теперь я упаковал это в курс — чтобы ты прошёл тот же путь <strong>быстрее и с поддержкой</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
-  <script src="main.js?v=3"></script>
+<!-- ГАРАНТИЯ -->
+<div class="guarantee-section">
+  <div class="guarantee-card">
+    <div class="guarantee-icon">🛡️</div>
+    <div><div class="guarantee-title">Гарантия 7 дней</div><div class="guarantee-desc">Если в первые 7 дней курс тебе не подойдёт — вернём деньги полностью, без вопросов и бюрократии. Просто напиши нам.</div></div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <p class="section-eyebrow">Частые вопросы</p>
+  <h2 class="section-h2">Отвечаем<br>честно</h2>
+  <details><summary>У меня нет времени ещё на один курс</summary><div class="faq-answer">15–20 минут в день — это меньше, чем один заход в Instagram. Курс специально устроен так, чтобы вписываться в любой ритм. Большинство заданий можно делать в транспорте или перед сном.</div></details>
+  <details><summary>Я не зависимый, просто люблю телефон</summary><div class="faq-answer">Зависимость — это громкое слово. Если ты иногда ловишь себя за бесцельным скроллингом, откладываешь важное ради ленты или проверяешь телефон без причины — курс про тебя. Это не патология, это просто привычка. И её можно изменить.</div></details>
+  <details><summary>Зачем платить, если есть приложения типа Forest?</summary><div class="faq-answer">Приложения блокируют симптом, а не причину. Курс работает с тем, почему ты вообще тянешься к телефону — со скукой, тревогой, привычкой искать стимуляцию. После курса не нужно никаких блокировщиков.</div></details>
+  <details><summary>Почему такая цена — курс не проверен?</summary><div class="faq-answer">Всё верно — это первый поток, и мы это не скрываем. Именно поэтому цена специальная. Ты получаешь прямой доступ к автору, живые эфиры и максимальное внимание. Плюс гарантия возврата — никакого риска.</div></details>
+  <details><summary>Подходит ли курс для детей или подростков?</summary><div class="faq-answer">Курс создан для взрослых, но многие техники отлично работают и с детьми — особенно если родитель проходит курс сам и показывает пример. Отдельной программы для детей пока нет.</div></details>
+</section>
+
+<!-- ФИНАЛЬНЫЙ CTA -->
+<section class="final-cta-section" id="final-cta">
+  <div class="final-cta-title">Готов начать?</div>
+  <div class="final-cta-sub">Первый поток — специальная цена.<br>После него стоимость вырастет до 5 000 ₽.</div>
+  <form id="lead-form-cta" novalidate>
+    <div class="cta-form">
+      <input type="text"  name="name"  placeholder="Ваше имя"             autocomplete="name"  required>
+      <input type="tel"   name="phone" placeholder="+7 (___) ___-__-__"   autocomplete="tel"   required>
+      <input type="email" name="email" placeholder="Email"                autocomplete="email" required>
+      <input type="text"  name="promo" placeholder="Промокод (если есть)" autocomplete="off" maxlength="32">
+      <div class="promo-hint" hidden></div>
+    </div>
+    <label class="form-consent">
+      <input type="checkbox" name="consent" required>
+      <span>Нажимая кнопку, я соглашаюсь с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a> и даю согласие на обработку персональных данных</span>
+    </label>
+    <div class="form-error" id="form-cta-error" hidden></div>
+    <button type="submit" class="submit-btn">
+      <span class="btn__text">Записаться</span>
+      <span class="btn__loader" hidden>
+        <span class="loader-dot"></span><span class="loader-dot"></span><span class="loader-dot"></span>
+      </span>
+    </button>
+  </form>
+  <div id="yookassa-widget" hidden></div>
+  <div class="final-trust">
+    <div class="final-trust-item">🛡️ Гарантия 7 дней</div>
+    <div class="final-trust-item">📅 21 день курса</div>
+    <div class="final-trust-item">💬 Поддержка</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>ИП Цедик Анастасия Андреевна</p>
+  <p>ИНН 505019180800 · ОГРНИП 325200000082578</p>
+  <p><a href="mailto:nezalipay.team@gmail.com">nezalipay.team@gmail.com</a></p>
+  <p style="margin-top:6px"><a href="privacy.html">Политика конфиденциальности</a> · <a href="offer.html">Публичная оферта</a> · <a href="cookie.html">Политика cookie</a></p>
+  <p style="margin-top:4px">© 2025 — Все права защищены</p>
+</footer>
+
+<script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
+<script src="main.js?v=4"></script>
 </body>
 </html>

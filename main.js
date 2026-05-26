@@ -48,6 +48,9 @@ function getStoredRef(key) {
 
 // ===== SCROLL-АНИМАЦИИ =====
 function initAnimations() {
+  // Включаем "JS-ready" режим — теперь CSS прячет animate-in до .visible
+  document.documentElement.classList.add('js-ready');
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -72,6 +75,12 @@ function initAnimations() {
   document.querySelectorAll('.cards-grid .card').forEach((card, i) => {
     card.style.transitionDelay = `${i * 0.06}s`;
   });
+
+  // Fallback: если observer почему-то не сработал — через 2 сек показываем всё.
+  setTimeout(() => {
+    document.querySelectorAll('.animate-in:not(.visible), .checklist__item:not(.visible)')
+      .forEach((el) => el.classList.add('visible'));
+  }, 2000);
 }
 
 // ===== ЮKassa =====

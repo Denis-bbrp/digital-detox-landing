@@ -934,9 +934,13 @@ input { font-family: inherit; }
 
 /* ===== SCROLL ANIMATIONS ===== */
 .animate-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.js-ready .animate-in:not(.visible) {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
 }
 .animate-in.visible {
   opacity: 1;
