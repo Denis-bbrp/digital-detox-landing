@@ -213,6 +213,7 @@ function showError(errorEl, message) {
   if (!errorEl) return;
   errorEl.textContent = message;
   errorEl.hidden = false;
+  setTimeout(() => errorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
 }
 
 // ===== ПРОМОКОД =====
