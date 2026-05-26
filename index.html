@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Цифровой детокс — вернись к себе за 21 день</title>
-  <meta name="description" content="Онлайн-курс «Цифровой детокс»: 21 день в закрытом Telegram-канале. Верни энергию, внимание и контроль над своей жизнью. Старт 1 июня. 5000 ₽.">
+  <meta name="description" content="Онлайн-курс «Цифровой детокс»: 21 день в закрытом Telegram-канале. Верни энергию, внимание и контроль над своей жизнью. Старт 1 июня. 2700 ₽.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=10">
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -34,24 +34,39 @@
 
   <main>
 
-    <!-- ===== БЛОК 1: HERO ===== -->
-    <section class="hero" id="hero">
-      <div class="hero__photo-badges">
-        <span class="hero__photo-badge">Цифровой детокс</span>
-        <span class="hero__photo-badge">21 день</span>
-        <span class="hero__photo-badge">Telegram-канал</span>
-      </div>
-      <div class="hero__photo-wrap">
-        <picture>
-          <source media="(max-width: 768px)" srcset="assets/mobile-hero.png">
-          <img src="assets/photo.png" alt="До и после цифрового детокса" class="hero__photo-top">
-        </picture>
-        <div class="hero__photo-overlay">
-          <p class="hero__overlay-text">Начни жить без тревоги,<br>лени и апатии</p>
-          <a href="#cta" class="btn btn--red">
-            Записаться
-          </a>
+    <!-- ===== БЛОК 1: HERO — КИНО-ГЕРОЙ ===== -->
+    <section class="hero hero--cinema" id="hero">
+      <img class="hero-cinema__img" src="assets/mobile-hero.png" alt="Цифровой детокс">
+      <div class="hero-cinema__grad"></div>
+
+      <div class="hero-cinema__top">
+        <div class="hero-cinema__timer-pill">
+          <div class="hero-cinema__timer-dot"></div>
+          <span id="hero-timer">1д 00ч 00м 00с</span>
         </div>
+        <div class="hero-cinema__flow-badge">🚀 Первый поток</div>
+      </div>
+
+      <div class="hero-cinema__bottom">
+        <span class="hero-cinema__tag">Цифровой детокс · 21 день</span>
+        <h1 class="hero-cinema__h1">Живи<br>в реальности,<br>а не в экране</h1>
+        <p class="hero-cinema__sub">21 день без лишнего шума. Больше энергии,<br>фокуса и настоящих моментов.</p>
+        <div class="hero-cinema__chips">
+          <span class="hero-cinema__chip">🌿 Меньше стресса</span>
+          <span class="hero-cinema__chip">🎯 Больше фокуса</span>
+          <span class="hero-cinema__chip">⚡ Больше энергии</span>
+          <span class="hero-cinema__chip">👥 Живые отношения</span>
+        </div>
+        <a href="#cta" class="hero-cinema__cta">
+          <span class="hero-cinema__cta-left">
+            <span class="hero-cinema__cta-main">Записаться</span>
+            <span class="hero-cinema__cta-sub">→ перейти к оплате</span>
+          </span>
+          <span class="hero-cinema__cta-price">
+            <span class="hero-cinema__price-old">5 000 ₽</span>
+            <span class="hero-cinema__price-new">2 700 ₽</span>
+          </span>
+        </a>
       </div>
     </section>
 
@@ -267,35 +282,39 @@
     <!-- ===== БЛОК 7: АВТОР ===== -->
     <section class="section author-section" id="author">
       <div class="container">
-        <div class="author__gallery animate-in">
-          <div class="gallery-item" data-index="0">
-            <img src="assets/nik1.jpg" alt="Никита Вохмянин">
-          </div>
-          <div class="gallery-item" data-index="1">
-            <img src="assets/nik2.jpg" alt="Никита Вохмянин">
-          </div>
-          <div class="gallery-item" data-index="2">
-            <img src="assets/nik3.jpg" alt="Никита Вохмянин">
-          </div>
-        </div>
-        <div class="author__grid">
-          <div class="author__content animate-in">
-            <p class="author__label">Автор курса</p>
-            <h2 class="author__name">Никита Вохмянин</h2>
-            <p class="author__bio">Предприниматель. Несмотря на успех, семью и проекты, столкнулся с апатией, ленью и потерей интереса к жизни.</p>
-            <p class="author__bio">Годами искал причину: психологи, практики, переезды — ничего не помогало.</p>
-            <p class="author__bio">Позже осознал, что телефон и постоянное потребление контента забирают энергию, внимание и желание жить.</p>
-            <p class="author__bio">На основе личного опыта и научных данных разработал систему цифрового детокса, которая помогла вернуть концентрацию, мотивацию и внутреннюю энергию.</p>
-            <div class="author__stats">
-              <div class="author__stat">
-                <span class="author__stat-num">21</span>
-                <span class="author__stat-label">день практики</span>
+        <p class="section__eyebrow">Автор</p>
+        <h2 class="section__title">Кто это создал</h2>
+
+        <div class="author-card animate-in">
+          <div class="author-swiper">
+            <div class="author-swiper__track">
+              <div class="author-swiper__item">
+                <img src="assets/nik2.jpg" alt="Никита Вохмянин" style="object-position: center 35%;">
               </div>
-              <div class="author__stat">
-                <span class="author__stat-num">15–20</span>
-                <span class="author__stat-label">минут в день</span>
+              <div class="author-swiper__item">
+                <img src="assets/nik1.jpg" alt="Никита Вохмянин" style="object-position: 18% 40%;">
+              </div>
+              <div class="author-swiper__item">
+                <img src="assets/nik3.jpg" alt="Никита Вохмянин" style="object-position: center 10%;">
               </div>
             </div>
+            <div class="author-swiper__dots">
+              <span class="author-swiper__dot active"></span>
+              <span class="author-swiper__dot"></span>
+              <span class="author-swiper__dot"></span>
+            </div>
+          </div>
+
+          <div class="author-card__header">
+            <div class="author-card__name">Никита Вохмянин</div>
+            <div class="author-card__role">Автор курса «Цифровой детокс»</div>
+          </div>
+
+          <div class="author-card__body">
+            <p class="author-card__bio">Несколько лет назад я поймал себя на том, что <strong>первые 40 минут после пробуждения</strong> просто лежал и скроллил. Без причины. Просто не мог остановиться.</p>
+            <p class="author-card__bio">Апатия, рассеянность, ощущение что <strong>жизнь проходит мимо</strong> — всё это было моим обычным фоном. Я читал про цифровую зависимость, но советы «просто удали соцсети» не работали.</p>
+            <p class="author-card__bio">Тогда я начал разбирать нейробиологию привычек и экономику внимания. Собрал систему из практик, которые <strong>работали без силы воли</strong>. За 21 день изменил своё утро, потом день, потом вечер.</p>
+            <p class="author-card__bio">Теперь я упаковал это в курс — чтобы ты прошёл тот же путь <strong>быстрее и с поддержкой</strong>.</p>
           </div>
         </div>
       </div>
@@ -343,7 +362,7 @@
           <div class="badges badges--outline">
             <span class="badge badge--outline">21 день</span>
             <span class="badge badge--outline">Цифровой детокс</span>
-            <span class="badge badge--outline">5 000 ₽</span>
+            <span class="badge badge--outline"><s style="opacity:.55;margin-right:6px">5 000 ₽</s>2 700 ₽</span>
           </div>
 
           <form id="lead-form-cta" class="lead-form lead-form--dark" novalidate>
@@ -357,6 +376,10 @@
               <div class="form-group">
                 <input type="email" name="email" placeholder="Email" autocomplete="email" required>
               </div>
+            </div>
+            <div class="form-promo">
+              <input type="text" name="promo" placeholder="Промокод (если есть)" autocomplete="off" maxlength="32" class="promo-input">
+              <div class="promo-hint" hidden></div>
             </div>
             <label class="form-consent">
               <input type="checkbox" name="consent" required>
@@ -397,6 +420,6 @@
   </footer>
 
   <script src="https://yookassa.ru/checkout-widget/v1/checkout-widget.js"></script>
-  <script src="main.js"></script>
+  <script src="main.js?v=3"></script>
 </body>
 </html>

@@ -6,7 +6,45 @@
 const CONFIG = {
   formspreeId: 'xvzyggjn',
   returnUrl:   'https://nezalipay.ru/thanks.html',
+  refTtlDays:  90,
 };
+
+// ===== РЕФ-ТРЕКИНГ =====
+const REF_KEYS = ['ref', 'utm_source', 'utm_campaign'];
+
+function captureRefFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const now = Date.now();
+  const ttl = CONFIG.refTtlDays * 24 * 60 * 60 * 1000;
+
+  REF_KEYS.forEach((key) => {
+    const value = params.get(key);
+    if (!value) return;
+    try {
+      localStorage.setItem(`nezalipay_${key}`, JSON.stringify({ value, ts: now }));
+    } catch {}
+  });
+
+  // Чистим протухшее
+  REF_KEYS.forEach((key) => {
+    try {
+      const raw = localStorage.getItem(`nezalipay_${key}`);
+      if (!raw) return;
+      const { ts } = JSON.parse(raw);
+      if (!ts || now - ts > ttl) localStorage.removeItem(`nezalipay_${key}`);
+    } catch {}
+  });
+}
+
+function getStoredRef(key) {
+  try {
+    const raw = localStorage.getItem(`nezalipay_${key}`);
+    if (!raw) return '';
+    return JSON.parse(raw).value || '';
+  } catch {
+    return '';
+  }
+}
 
 // ===== SCROLL-АНИМАЦИИ =====
 function initAnimations() {
@@ -37,12 +75,19 @@ function initAnimations() {
 }
 
 // ===== ЮKassa =====
-async function openYooKassa(errorEl, email, name, phone) {
+async function openYooKassa(errorEl, email, name, phone, promo) {
   try {
+    const payload = {
+      email, name, phone,
+      promo: promo || '',
+      ref: getStoredRef('ref'),
+      utm_source: getStoredRef('utm_source'),
+      utm_campaign: getStoredRef('utm_campaign'),
+    };
     const res = await fetch('/api/create-payment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, name, phone }),
+      body: JSON.stringify(payload),
     });
     if (!res.ok) throw new Error('payment-api-error');
     const { token } = await res.json();
@@ -79,6 +124,7 @@ function handleFormSubmit(formEl) {
     let isValid = true;
     inputs.forEach((input) => {
       if (input.type === 'checkbox') return;
+      if (input.name === 'promo') return;
       input.classList.remove('input-error');
       if (!input.value.trim()) {
         input.classList.add('input-error');
@@ -125,7 +171,8 @@ function handleFormSubmit(formEl) {
         const email = formEl.querySelector('input[type="email"]')?.value?.trim() || '';
         const name  = formEl.querySelector('input[name="name"]')?.value?.trim() || '';
         const phone = formEl.querySelector('input[name="phone"]')?.value?.trim() || '';
-        openYooKassa(errorEl, email, name, phone);
+        const promo = formEl.querySelector('input[name="promo"]')?.value?.trim() || '';
+        openYooKassa(errorEl, email, name, phone, promo);
       } else {
         throw new Error('Formspree error');
       }
@@ -157,6 +204,53 @@ function showError(errorEl, message) {
   if (!errorEl) return;
   errorEl.textContent = message;
   errorEl.hidden = false;
+}
+
+// ===== ПРОМОКОД =====
+function initPromoField(formEl) {
+  const input = formEl.querySelector('input[name="promo"]');
+  const hint  = formEl.querySelector('.promo-hint');
+  if (!input || !hint) return;
+
+  let timer = null;
+  let lastCode = '';
+
+  const setHint = (text, cls) => {
+    hint.textContent = text;
+    hint.classList.remove('promo-valid', 'promo-invalid');
+    if (cls) hint.classList.add(cls);
+    hint.hidden = !text;
+  };
+
+  const check = async () => {
+    const code = input.value.trim().toUpperCase();
+    if (code === lastCode) return;
+    lastCode = code;
+
+    if (!code) { setHint('', null); return; }
+
+    try {
+      const res = await fetch(`/api/validate-promo?code=${encodeURIComponent(code)}`);
+      if (!res.ok) { setHint('', null); return; }
+      const data = await res.json();
+      if (data.valid) {
+        setHint(`Скидка ${data.discount} ₽, итого ${data.price} ₽`, 'promo-valid');
+      } else {
+        setHint('Код не найден', 'promo-invalid');
+      }
+    } catch {
+      setHint('', null);
+    }
+  };
+
+  input.addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = setTimeout(check, 400);
+  });
+  input.addEventListener('blur', () => {
+    clearTimeout(timer);
+    check();
+  });
 }
 
 // ===== ГАЛЕРЕЯ + ЛАЙТБОКС =====
@@ -224,9 +318,46 @@ function initGallery() {
 
 // ===== ИНИЦИАЛИЗАЦИЯ =====
 document.addEventListener('DOMContentLoaded', () => {
+  captureRefFromUrl();
   initAnimations();
   initGallery();
 
   const ctaForm = document.getElementById('lead-form-cta');
-  if (ctaForm) handleFormSubmit(ctaForm);
+  if (ctaForm) {
+    handleFormSubmit(ctaForm);
+    initPromoField(ctaForm);
+  }
 });
+
+// ═══ COUNTDOWN TIMER ═══
+(function() {
+  var end = new Date(Date.now() + (2*86400 + 0*3600 + 0*60) * 1000);
+  function updateTimer() {
+    var diff = Math.max(0, end - Date.now());
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    var str = (d > 0 ? d + 'д ' : '') +
+      String(h).padStart(2,'0') + 'ч ' +
+      String(m).padStart(2,'0') + 'м ' +
+      String(s).padStart(2,'0') + 'с';
+    var el = document.getElementById('hero-timer');
+    if (el) el.textContent = str;
+  }
+  updateTimer();
+  setInterval(updateTimer, 1000);
+})();
+
+// ═══ AUTHOR SWIPER DOTS ═══
+(function() {
+  var track = document.querySelector('.author-swiper__track');
+  var dots  = document.querySelectorAll('.author-swiper__dot');
+  if (!track || !dots.length) return;
+  track.addEventListener('scroll', function() {
+    var idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === idx);
+    });
+  }, { passive: true });
+})();

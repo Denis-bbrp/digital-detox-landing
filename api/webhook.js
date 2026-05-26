@@ -11,20 +11,32 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  const email = payment.metadata?.email;
-  const name  = payment.metadata?.name || 'Привет';
-  const phone = payment.metadata?.phone || '';
+  const meta  = payment.metadata || {};
+  const email = meta.email;
+  const name  = meta.name || 'Привет';
+  const phone = meta.phone || '';
+
+  const amountInt = Math.round(parseFloat(payment.amount?.value || '2700'));
+  const amountFormatted = amountInt.toLocaleString('ru-RU') + ' ₽';
 
   if (email) {
-    await sendConfirmationEmail(email, name);
+    await sendConfirmationEmail(email, name, amountFormatted);
   }
 
-  await logToSheets({ payment, name, email: email || '', phone });
+  await logToSheets({
+    payment, name, email: email || '', phone,
+    ref: meta.ref || '',
+    promo: meta.promo || '',
+    discount: meta.discount || '0',
+    blogger: meta.blogger || '',
+    utm_source: meta.utm_source || '',
+    utm_campaign: meta.utm_campaign || '',
+  });
 
   res.status(200).end();
 }
 
-async function logToSheets({ payment, name, email, phone }) {
+async function logToSheets(data) {
   const url = process.env.GOOGLE_SHEET_WEBHOOK_URL;
   if (!url) return;
   try {
@@ -33,16 +45,24 @@ async function logToSheets({ payment, name, email, phone }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         date: new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' }),
-        name, email, phone,
-        amount: payment.amount?.value || '5000.00',
-        payment_id: payment.id,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        amount: data.payment.amount?.value || '2700.00',
+        payment_id: data.payment.id,
         status: 'оплачено',
+        ref: data.ref,
+        promo: data.promo,
+        discount: data.discount,
+        blogger: data.blogger,
+        utm_source: data.utm_source,
+        utm_campaign: data.utm_campaign,
       }),
     });
   } catch {}
 }
 
-async function sendConfirmationEmail(email, name) {
+async function sendConfirmationEmail(email, name, amountFormatted) {
   const { RESEND_API_KEY } = process.env;
   if (!RESEND_API_KEY) return;
 
@@ -52,7 +72,7 @@ async function sendConfirmationEmail(email, name) {
       <p style="margin-bottom:24px">Привет, ${name}!</p>
       <p>Твоя оплата курса <strong>«Цифровой детокс» — 21 день</strong> успешно получена.</p>
       <table style="margin:24px 0;border-collapse:collapse;width:100%">
-        <tr><td style="padding:8px 0;color:#666">Сумма:</td><td style="padding:8px 0;font-weight:bold">5 000 ₽</td></tr>
+        <tr><td style="padding:8px 0;color:#666">Сумма:</td><td style="padding:8px 0;font-weight:bold">${amountFormatted}</td></tr>
         <tr><td style="padding:8px 0;color:#666">Курс:</td><td style="padding:8px 0">«Цифровой детокс» — 21 день</td></tr>
       </table>
       <p style="margin-bottom:24px">Переходи в закрытый Telegram-канал — всё начинается там:</p>

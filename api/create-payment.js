@@ -1,3 +1,5 @@
+import { applyPromo, BASE_PRICE } from './_promo-codes.js';
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
@@ -6,7 +8,14 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'YooKassa env vars not set' });
   }
 
-  const { email = '', name = '', phone = '' } = req.body || {};
+  const {
+    email = '', name = '', phone = '',
+    ref = '', promo = '',
+    utm_source = '', utm_campaign = '',
+  } = req.body || {};
+
+  const { valid, price, discount, blogger, code } = applyPromo(promo);
+  const amountValue = price.toFixed(2);
 
   const credentials = Buffer.from(`${YOOKASSA_SHOP_ID}:${YOOKASSA_SECRET_KEY}`).toString('base64');
   const idempotenceKey = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
@@ -21,20 +30,29 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        amount: { value: '5000.00', currency: 'RUB' },
+        amount: { value: amountValue, currency: 'RUB' },
         capture: true,
         confirmation: {
           type: 'embedded',
           return_url: 'https://nezalipay.ru/thanks.html',
         },
         description: 'Курс «Цифровой детокс» — 21 день',
-        metadata: { email, name, phone },
+        metadata: {
+          email, name, phone,
+          ref: String(ref).slice(0, 64),
+          promo: valid ? code : '',
+          discount: valid ? String(discount) : '0',
+          blogger: valid ? blogger : '',
+          base_price: String(BASE_PRICE),
+          utm_source: String(utm_source).slice(0, 64),
+          utm_campaign: String(utm_campaign).slice(0, 64),
+        },
         receipt: {
           customer: { email: email || 'noreply@nezalipay.ru' },
           items: [{
             description: 'Курс «Цифровой детокс» — 21 день',
             quantity: '1.00',
-            amount: { value: '5000.00', currency: 'RUB' },
+            amount: { value: amountValue, currency: 'RUB' },
             vat_code: 1,
             payment_mode: 'full_payment',
             payment_subject: 'service',
