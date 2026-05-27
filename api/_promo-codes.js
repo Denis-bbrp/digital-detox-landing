@@ -14,6 +14,11 @@ export function applyPromo(rawCode) {
   const entry = PROMO_CODES[code];
   if (!entry) return { valid: false, price: BASE_PRICE, discount: 0, blogger: '', code };
 
+  // Проверка срока действия
+  if (entry.expires && new Date() > new Date(entry.expires)) {
+    return { valid: false, price: BASE_PRICE, discount: 0, blogger: '', code };
+  }
+
   // fixed_price: финальная цена задана напрямую
   if (entry.type === 'fixed_price') {
     const price    = entry.fixed_price;
