@@ -15,7 +15,7 @@ export default async function handler(req, res) {
   } = req.body || {};
 
   const { valid, price, discount, blogger, code } = applyPromo(promo);
-  const amountValue = '1.00'; // TODO: ТЕСТ — убрать перед запуском, вернуть: price.toFixed(2)
+  const amountValue = price.toFixed(2);
 
   const credentials = Buffer.from(`${YOOKASSA_SHOP_ID}:${YOOKASSA_SECRET_KEY}`).toString('base64');
   const idempotenceKey = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
