@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ═══ COUNTDOWN TIMER ═══
 (function() {
-  var end = new Date(Date.now() + (2*86400 + 0*3600 + 0*60) * 1000);
+  var end = new Date('2026-06-01T00:00:00');
   function updateTimer() {
     var diff = Math.max(0, end - Date.now());
     var d = Math.floor(diff / 86400000);
