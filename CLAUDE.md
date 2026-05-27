@@ -1,96 +1,124 @@
 # Цифровой детокс — Лендинг
 
+Курс «Цифровой детокс — 21 день». Автор: Никита Вохмянин.
 HTML+CSS+JS, без фреймворка. Хостинг: **Vercel** (статика + serverless API).
-GitHub: https://denis-bbrp.github.io/digital-detox-landing/
+GitHub: https://github.com/Denis-bbrp/digital-detox-landing
 Продакшн: https://nezalipay.ru
 
-## Файлы
+---
+
+## Стек и файлы
 
 ```
 landing/
-  index.html      — основная страница (9 блоков)
-  style.css       — все стили, CSS-переменные, адаптив
-  main.js         — анимации, формы, галерея, лайтбокс
-  thanks.html     — страница после оплаты → кнопка в Telegram
-  vercel.json     — конфиг Vercel
+  index.html           — основная страница, inline CSS, mobile-first (max-width: 480px)
+  main.js              — анимации, форма, ЮKassa виджет, промокод, галерея
+  thanks.html          — страница после оплаты → кнопка в Telegram-канал
+  style.css            — стили для thanks.html (CSS-переменные зелёная тема)
+  vercel.json          — конфиг Vercel (функции + роуты)
   api/
     create-payment.js  — serverless: создаёт платёж в ЮKassa, возвращает token
+    webhook.js         — serverless: принимает ЮKassa webhook, пишет в Sheets + отправляет email
+    validate-promo.js  — serverless: проверяет промокод, возвращает цену
+    _promo-codes.js    — список промокодов (редактировать здесь)
   assets/
-    photo.png         — hero фото десктоп (1776×886, before/after)
-    mobile-hero.png   — hero фото мобайл (941×1672, вертикальный)
-    nik1.jpg          — фото автора для галереи (960×1280)
-    nik2.jpg
-    nik3.jpg
+    mobile-hero.png    — hero фото мобайл (941×1672)
+    photo.png          — hero фото десктоп (1776×886)
+    nik1.jpg / nik2.jpg / nik3.jpg  — фото автора для свайпера
 ```
 
-## Заглушки
+---
 
-Все заглушки заменены. Осталось только задать env vars в Vercel (см. ниже).
+## Дизайн
 
-## Env vars в Vercel (Settings → Environment Variables)
+Палитра (olive/warm cinema):
+- `--red: #c8401a` — акцент, кнопки
+- `--dark: #2d2d18` — тёмные секции, финальный CTA
+- `--cream: #f2f0e3` — фон
+- `--warm: #1e1e0f` — тёмный блок автора
+- `--muted: #7a7a58` — вторичный текст
 
-| Переменная | Откуда взять |
-|---|---|
-| `YOOKASSA_SHOP_ID` | ЮKassa → Настройки магазина → shopId |
-| `YOOKASSA_SECRET_KEY` | ЮKassa → Настройки → Ключи API → Секретный ключ |
+Шрифты: Syne (заголовки), Bebas Neue (цена), Manrope (тело)
+Все стили — inline в `index.html`, никакого `style.css` для основной страницы.
+
+---
 
 ## Воронка
 
 ```
-Форма (имя + телефон + email)
-  → Formspree сохраняет контакт
-  → /api/create-payment → ЮKassa виджет (5000 ₽)
-  → [оплатил] thanks.html → кнопка в Telegram
-  → [не оплатил] контакт сохранён, менеджер звонит
+Форма (имя + телефон + email + промокод)
+  → Formspree (ID: xvzyggjn) сохраняет контакт
+  → /api/create-payment → ЮKassa embedded-виджет (2700 ₽)
+  → [оплатил] thanks.html → кнопка в Telegram-канал (t.me/+kth_vQIBJtYwZTVl)
+             → ЮKassa webhook → /api/webhook → Google Sheets + email покупателю
+  → [не оплатил] контакт сохранён в Formspree, менеджер звонит
 ```
 
-## Интеграции
+---
 
-**Formspree** — `https://formspree.io/f/YOUR_FORM_ID`
-- Бесплатно до 50 заявок/месяц
-- formspree.io → New Form → скопировать ID → вставить в main.js:7
+## Env vars в Vercel (все уже настроены)
 
-**ЮKassa** — embedded-виджет
-- `api/create-payment.js` — serverless-функция Vercel, создаёт платёж через ЮKassa API
-- Токен (confirmation_token) генерируется на каждый платёж
-- Виджет рендерится в `#yookassa-widget` на странице
+| Переменная | Что делает |
+|---|---|
+| `YOOKASSA_SHOP_ID` | ID магазина ЮKassa (1361786) |
+| `YOOKASSA_SECRET_KEY` | Секретный ключ ЮKassa |
+| `GOOGLE_SHEET_WEBHOOK_URL` | URL Google Apps Script → пишет строку в таблицу |
+| `RESEND_API_KEY` | Ключ Resend → отправляет email покупателю после оплаты |
 
-## Структура CSS
+---
 
-Шрифт: Manrope (Google Fonts), weights 400/500/600/700/800
-Основной акцент: `#0D7C5B` (зелёный)
-Breakpoints: 900px (планшет), 768px (мобайл), 480px (малый мобайл)
+## Google Sheets (таблица оплат)
 
-## Hero блок
+URL: https://docs.google.com/spreadsheets/d/110v0N5263cEQByFhVCcGR5iKSGMNwb8Cat50iR0lE5U
 
-Структура: бейджи-строка сверху → фото на всю ширину → overlay с текстом и кнопкой
-- Десктоп: `assets/photo.png` через `<picture>`
-- Мобайл (≤768px): `assets/mobile-hero.png` через `<source media>`
-- Overlay кнопка ведёт на `https://t.me/+kth_vQIBJtYwZTVl` (прямо в Telegram, без формы)
+Колонки:
+A: Дата | B: Имя | C: Email | D: Телефон | E: Сумма | F: Payment ID | G: Статус | H: (реф, пусто) | I: Промокод | J: Скидка
 
-## Автор блок
+Данные пишутся через Google Apps Script (веб-приложение), который принимает POST от `/api/webhook`.
 
-Галерея-аккордеон из 3 фото (nik1/2/3.jpg) + лайтбокс (свайп, клавиши, клик вне).
-Текст автора: Никита Вохмянин — предприниматель, история личного детокса.
+---
+
+## Промокоды (`api/_promo-codes.js`)
+
+Активные:
+- `TEST1` — 1 ₽ (тест, удалить после проверки)
+- `NASTYA` — закомментирован, не активен
+
+Типы промокодов:
+- `percent` — скидка в % от BASE_PRICE (2700 ₽)
+- `fixed` — скидка в рублях
+- `fixed_price` — итоговая цена напрямую (MIN_PRICE не применяется)
+
+Опционально поле `expires: 'YYYY-MM-DD'` — промокод перестаёт работать после этой даты.
+
+Чтобы добавить/удалить промокод — редактируй `_promo-codes.js`, пуш, деплой ~1 мин.
+
+---
+
+## Плавающая кнопка контактов
+
+Фиксированная кнопка "Остались вопросы?" в правом нижнем углу.
+Контакты Никиты:
+- Telegram: @vnik106
+- WhatsApp: +7 (989) 854-11-17
+- Телефон: +7 (989) 854-11-17
+
+---
+
+## Что ещё ждёт настройки
+
+- [ ] **ЮKassa webhook** — нужно добавить в ЛК ЮKassa:
+  URL: `https://nezalipay.ru/api/webhook`, событие: `payment.succeeded`
+- [ ] Удалить промокод `TEST1` после тестирования
+
+---
 
 ## Деплой
 
 ```bash
+cd landing
 git add .
-git commit -m "..."
+git commit -m "описание"
 git push
-# GitHub Pages обновляется через ~1 минуту
+# Vercel деплоит автоматически через ~1 мин
 ```
-
-## Что работает без настройки
-
-- Все анимации (IntersectionObserver)
-- Галерея + лайтбокс
-- Адаптив (мобайл/десктоп)
-- Валидация формы на клиенте
-
-## Что не работает без настройки
-
-- Отправка формы (нужен Formspree ID)
-- Оплата (нужен ЮKassa токен)
-- Кнопки Telegram (нужна реальная ссылка)
