@@ -1,28 +1,10 @@
 export const BASE_PRICE = 2700;
 export const MIN_PRICE  = 1000;
 
-// ─────────────────────────────────────────────
-// ПРОМОКОДЫ
-//
-// Типы:
-//   percent     — скидка в %. Пример: { discount: 20, type: 'percent', blogger: 'nastya' }
-//   fixed       — скидка в рублях. Пример: { discount: 500, type: 'fixed', blogger: '' }
-//   fixed_price — итоговая цена напрямую (MIN_PRICE не применяется).
-//                 Пример: { type: 'fixed_price', fixed_price: 1, blogger: 'test' }
-//
-// blogger — ник для трекинга в таблице (можно оставить пустым '')
-// ─────────────────────────────────────────────
+// blogger — ник для трекинга в таблице
 export const PROMO_CODES = {
-  // ── ТЕСТ (1 рубль) ──
-  'TEST1':    { type: 'fixed_price', fixed_price: 1,    blogger: 'test' },
-
-  // ── БЛОГЕРЫ (10%) ──
-  // 'NASTYA':   { discount: 10, type: 'percent', blogger: 'nastya' },
-  // 'IVAN':     { discount: 10, type: 'percent', blogger: 'ivan'   },
-
-  // ── СПЕЦПРЕДЛОЖЕНИЯ ──
-  // 'EARLY500':  { discount: 500,  type: 'fixed',   blogger: '' },
-  // 'PROMO20':   { discount: 20,   type: 'percent', blogger: '' },
+  'TEST1':  { type: 'fixed_price', fixed_price: 1,  blogger: 'test'  }, // TODO: удалить после тестов
+  'NASTYA': { type: 'percent',     discount: 10,    blogger: 'nastya' },
 };
 
 export function applyPromo(rawCode) {
